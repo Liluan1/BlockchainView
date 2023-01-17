@@ -39,13 +39,15 @@ def random_combine_attributes():
             policy += ' ' + relation[random.randint(0, len(relation)-1)] + ' '
     return attribute, policy
 
-for i in range(1,5):
-    for j in range(8*i):
+batch_size = [5, 10, 20, 25, 50, 100]
+for i in batch_size:
+    batch_num = 200//i
+    for j in range(batch_num):
         batch = []
-        for _ in range(25):
+        for k in range(i):
             attribute, policy = random_combine_attributes()
             batch.append({"policy": policy, "attributes": attribute})
         all_json["transactions"].append(batch)
 
-    open(f'access_control_{200*i}.json', 'w').write(json.dumps(all_json, indent=4, sort_keys=True))
+    open(f'access_control_{batch_num}batch_{i}size.json', 'w').write(json.dumps(all_json, indent=4, sort_keys=True))
 

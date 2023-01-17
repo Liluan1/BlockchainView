@@ -16,7 +16,7 @@ set -o pipefail
 [[ -n "${__SCRIPT_DIR+x}" ]] || readonly __SCRIPT_DIR="$(cd "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
 [[ -n "${__SCRIPT_NAME+x}" ]] || readonly __SCRIPT_NAME="$(basename -- $0)"
 
-PEER_COUNT=3
+PEER_COUNT=2
 
 . env.sh
 
@@ -29,9 +29,9 @@ function network_channel_up() {
     ./network.sh up
     ./network.sh createChannel -c ${CHANNEL_NAME}
     popd  > /dev/null 2>&1
-    pushd ${NETWORK_DIR}/addOrg3 > /dev/null 2>&1
-    ./addOrg3.sh up -c ${CHANNEL_NAME}
-    popd  > /dev/null 2>&1
+    # pushd ${NETWORK_DIR}/addOrg3 > /dev/null 2>&1
+    # ./addOrg3.sh up -c ${CHANNEL_NAME}
+    # popd  > /dev/null 2>&1
 }
 
 function deploy_chaincode() {
@@ -207,8 +207,8 @@ main() {
     # workload_file="$1"
     # client_count=$2
     
-    for workload_file in "workload/access_control_600.json"; do
-        for client_count in 3; do
+    for workload_file in $(ls workload/access_control_*batch_*size.json); do
+        for client_count in 1 2; do
             run_exp ${workload_file} ${client_count}
             # perf_test ${workload_file} ${client_count}
             echo "Sleep for 10s before the next experiment"
