@@ -8,6 +8,7 @@ const FabricFront = require("../app/fabricfront").FabricFront;
 const MockFabricFront = require("../app/fabricfront").MockFabricFront;
 const LEDGER_SIZE_FIELD = require("../app/fabricfront").LEDGER_SIZE_FIELD;
 
+const AccessControlMgr = require("../app/access_control_mgr").AccessControlMgr;
 const EncryptionBasedViewMgr = require("../app/encryption_based_view_mgr").EncryptionBasedViewMgr;
 const HashBasedViewMgr = require("../app/hash_based_view_mgr").HashBasedViewMgr;
 const PlainViewMgr = require("../app/plain_view_mgr").PlainViewMgr;
@@ -19,13 +20,13 @@ const { loadavg } = require('os');
 LOGGER.setDefaultLevel('info');
 
 const ORG_DIR = process.argv[2];
-const WORKLOAD_PATH = process.argv[3]; 
+const WORKLOAD_PATH = process.argv[3];
 const DATA_HIDING_SCHEME = process.argv[4]; // encryption/hash/plain
 const VIEW_MODE = process.argv[5]; // irrevocable/revocable/view_in_contract/mock_fabric
 const CHANNEL_NAME = process.argv[6];
 const WORKLOAD_CHAINCODEID = process.argv[7];
 
-var PHYSICAL_VIEW_COUNT = 0; 
+var PHYSICAL_VIEW_COUNT = 0;
 if (process.argv[8] !== undefined) {
     PHYSICAL_VIEW_COUNT = parseInt(process.argv[8]);
 }
@@ -72,12 +73,12 @@ function PreparePubArg(view_mode, req) {
             var physical_view_name = LOGICAL2PHYSICALVIEWS[logical_view_name];
             req_physical_views.push(physical_view_name);
         }
-        pub_arg = req_physical_views.join("_");  
+        pub_arg = req_physical_views.join("_");
     }
     return pub_arg;
 }
 
-Promise.resolve().then(()=>{
+Promise.resolve().then(() => {
     var fabric_front;
     if (VIEW_MODE === global.MockFabricMode) {
         fabric_front = new MockFabricFront();
@@ -98,17 +99,15 @@ Promise.resolve().then(()=>{
         fabric_front = new FabricFront(profile_path, CHANNEL_NAME, mspId, cert_path, key_path);
     }
     return fabric_front.InitNetwork();
-}).then((fabric_front)=>{
+}).then((fabric_front) => {
     FABRIC_FRONT = fabric_front;
     const viewstorage_contractID = "viewstorage"; // only used in irrevocable mode;
     if (DATA_HIDING_SCHEME == global.HashScheme) {
-        VIEW_MGR = new HashBasedViewMgr(fabric_front, VIEW_MODE, WORKLOAD_CHAINCODEID, viewstorage_contractID);; 
-
+        VIEW_MGR = new HashBasedViewMgr(fabric_front, VIEW_MODE, WORKLOAD_CHAINCODEID, viewstorage_contractID);
     } else if (DATA_HIDING_SCHEME == global.EncryptionScheme) {
-        VIEW_MGR = new EncryptionBasedViewMgr(fabric_front, VIEW_MODE, WORKLOAD_CHAINCODEID, viewstorage_contractID);; 
-        
+        VIEW_MGR = new EncryptionBasedViewMgr(fabric_front, VIEW_MODE, WORKLOAD_CHAINCODEID, viewstorage_contractID);
     } else if (DATA_HIDING_SCHEME == global.PlainScheme) {
-        VIEW_MGR = new PlainViewMgr(fabric_front, VIEW_MODE, WORKLOAD_CHAINCODEID, viewstorage_contractID);; 
+        VIEW_MGR = new PlainViewMgr(fabric_front, VIEW_MODE, WORKLOAD_CHAINCODEID, viewstorage_contractID);
     } else {
         LOGGER.error(`Unrecognized Data Hiding Scheme ${DATA_HIDING_SCHEME}`);
         process.exit(1);
@@ -128,13 +127,13 @@ Promise.resolve().then(()=>{
     LOGGER.info(`Create ${PHYSICAL_VIEW_COUNT} physical views for ${logical_view_count} logical ones. `);
 
     for (var i = 0; i < PHYSICAL_VIEW_COUNT; i++) {
-        view_creation_promises.push(VIEW_MGR.CreateView("PhysicalView"+i, []));
+        view_creation_promises.push(VIEW_MGR.CreateView("PhysicalView" + i, []));
     }
 
     for (var i = 0; i < logical_view_count; i++) {
         var logical_view_name = WORKLOAD["views"][i];
         var id = "" + i % PHYSICAL_VIEW_COUNT;
-        var physical_view_name =  "PhysicalView"+ id;
+        var physical_view_name = "PhysicalView" + id;
         // Must be identical to the above physical view name
         LOGICAL2PHYSICALVIEWS[logical_view_name] = physical_view_name;
         LOGGER.info(`\tLogical View ${logical_view_name} to PhysicalView ${physical_view_name}`);
@@ -142,14 +141,14 @@ Promise.resolve().then(()=>{
 
     return Promise.all(view_creation_promises);
 
-}).then(()=>{
+}).then(() => {
     EXEC_START = new Date();
     var req_batches = WORKLOAD["blocks"];
     LOGGER.info(`# of Request Batches: ${req_batches.length}`);
 
-    return req_batches.reduce( async (previousPromise, req_batch) => {
+    return req_batches.reduce(async (previousPromise, req_batch) => {
         await previousPromise;
-        BATCH_ID+=1;
+        BATCH_ID += 1;
         var batch_req_count = req_batch.length;
         TOTAL_REQ_COUNT += batch_req_count;
         LOGGER.info(`Prepare to group ${batch_req_count} requests in batch ${BATCH_ID}`);
@@ -161,16 +160,16 @@ Promise.resolve().then(()=>{
 
             var req = req_batch[i]
             var pub_arg = PreparePubArg(VIEW_MODE, req);
-            var req_promise = VIEW_MGR.InvokeTxn(WL_FUNC_NAME, pub_arg, CONFIDENTIAL_DATA, req).then((result)=>{
+            var req_promise = VIEW_MGR.InvokeTxn(WL_FUNC_NAME, pub_arg, CONFIDENTIAL_DATA, req).then((result) => {
                 var status_code = result[0];
                 if (status_code !== 0) {
-                    REJECTED_TXN_COUNT+=1;
+                    REJECTED_TXN_COUNT += 1;
                     return;
                 } else if (VIEW_MODE === global.ViewInContractMode) {
-                    COMMITTED_TXN_COUNT+=1;
+                    COMMITTED_TXN_COUNT += 1;
                     return;
                 } else { // For Revocable/Irrevocable/MockFabric Mode. Need to explicitly maintain views by appending operations. 
-                    COMMITTED_TXN_COUNT+=1;
+                    COMMITTED_TXN_COUNT += 1;
 
                     var txnID = result[1];
                     var raw_req = result[2];
@@ -195,34 +194,34 @@ Promise.resolve().then(()=>{
                         }
                         let other_logical_view_name = raw_req["views"][ii]["name"];
                         let other_physical_view_name = LOGICAL2PHYSICALVIEWS[other_logical_view_name];
-                        if (typeof other_physical_view_name === 'undefined'){
+                        if (typeof other_physical_view_name === 'undefined') {
                             console.log(`Can not find physical views for ${other_logical_view_name}`);
                             process.exit(1);
-                         }
+                        }
 
 
                         if (other_physical_view_name in physicalview2TxnIDs) {
                             var exists = false;
                             for (var j = 0; j < physicalview2TxnIDs[other_physical_view_name].length; j++) {
                                 if (physicalview2TxnIDs[other_physical_view_name][j] === other_txnID) {
-                                    exists = true; 
+                                    exists = true;
                                     break
                                 }
                             }
-    
-                            if (! exists) {
+
+                            if (!exists) {
                                 physicalview2TxnIDs[other_physical_view_name].push(other_txnID);
                             }
                         } else {
                             physicalview2TxnIDs[other_physical_view_name] = [other_txnID];
                         }
-    
+
                     }
 
                     var view_append_promises = [];
                     for (var view_name in physicalview2TxnIDs) {
                         LOGGER.info(`View ${view_name} is appended with txns [${physicalview2TxnIDs[view_name]}]. `)
-                        
+
                         view_append_promises.push(VIEW_MGR.AppendView(view_name, physicalview2TxnIDs[view_name]));
                     }
 
@@ -232,27 +231,27 @@ Promise.resolve().then(()=>{
             request_promises.push(req_promise);
         }
 
-        await Promise.all(request_promises).then(()=>{
+        await Promise.all(request_promises).then(() => {
             let batch_elapsed = new Date() - batch_start;
             BATCH_EXEC_DELAY += batch_elapsed;
         });
     });
 }).then(() => {
     TOTAL_ELAPSED = new Date() - EXEC_START;
-//     return FABRIC_FRONT.ScanLedgerForDelayStorage();
-// }).then((ledger_info) => {
+    //     return FABRIC_FRONT.ScanLedgerForDelayStorage();
+    // }).then((ledger_info) => {
 
-//     var ledger_size = ledger_info[LEDGER_SIZE_FIELD];
-//     LOGGER.info(`Ledger Size (Bytes): ${ledger_size}`);
-}).catch((err)=>{
+    //     var ledger_size = ledger_info[LEDGER_SIZE_FIELD];
+    //     LOGGER.info(`Ledger Size (Bytes): ${ledger_size}`);
+}).catch((err) => {
     LOGGER.error("Invocation fails with err msg: " + err.stack);
-}).finally(()=>{
+}).finally(() => {
     let avg_batch_delay = Math.floor(BATCH_EXEC_DELAY / BATCH_ID);
-    LOGGER.info(`Total Duration (ms): ${TOTAL_ELAPSED} ,  # of app txn:  ${TOTAL_REQ_COUNT} , Committed Txn Count: ${COMMITTED_TXN_COUNT} , avg batch delay (ms): ${avg_batch_delay} # of batches ${BATCH_ID}`);    
+    LOGGER.info(`Total Duration (ms): ${TOTAL_ELAPSED} ,  # of app txn:  ${TOTAL_REQ_COUNT} , Committed Txn Count: ${COMMITTED_TXN_COUNT} , avg batch delay (ms): ${avg_batch_delay} # of batches ${BATCH_ID}`);
 
     process.exit(0)
 })
-;
+    ;
 
 
 

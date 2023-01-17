@@ -16,17 +16,21 @@ set -o pipefail
 [[ -n "${__SCRIPT_DIR+x}" ]] || readonly __SCRIPT_DIR="$(cd "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
 [[ -n "${__SCRIPT_NAME+x}" ]] || readonly __SCRIPT_NAME="$(basename -- $0)"
 
-PEER_COUNT=2
+PEER_COUNT=3
 
 . env.sh
 
 SCRIPT_NAME=$(basename $0 .sh)
 
 function network_channel_up() {
+    export PEER_COUNT=${PEER_COUNT}
     pushd ${NETWORK_DIR} > /dev/null 2>&1
     ./network.sh down
     ./network.sh up
     ./network.sh createChannel -c ${CHANNEL_NAME}
+    popd  > /dev/null 2>&1
+    pushd ${NETWORK_DIR}/addOrg3 > /dev/null 2>&1
+    ./addOrg3.sh up -c ${CHANNEL_NAME}
     popd  > /dev/null 2>&1
 }
 
@@ -35,7 +39,7 @@ function deploy_chaincode() {
     chaincode_name="$1"
     peer_count=$2
     all_org=""
-    export PEER_COUNT=${PEER_COUNT}
+
     for i in $(seq ${peer_count})
     do
         all_org="$all_org 'Org${i}MSP.peer'"
@@ -56,28 +60,13 @@ function network_down() {
 
 function run_exp() {
     workload_file="$1"
-    hiding_scheme="$2"
-    view_mode="$3"
-    client_count=$4
+    client_count=$2
 
     network_channel_up
 
-    if [[ "$view_mode" == "${REVOCABLE_MODE}" ]] ; then
-        workload_chaincodeID="secretcontract"
-        deploy_chaincode ${workload_chaincodeID} ${PEER_COUNT}
-    fi
-
-    if [[ "$view_mode" == "${IRREVOCABLE_MODE}" ]] ; then
-        deploy_chaincode "viewstorage" ${PEER_COUNT}
-
-        workload_chaincodeID="secretcontract"
-        deploy_chaincode ${workload_chaincodeID} ${PEER_COUNT}
-    fi
-
-    if [[ "$view_mode" == "${VIEWINCONTRACT_MODE}" ]] ; then
-        workload_chaincodeID="onchainview"
-        deploy_chaincode ${workload_chaincodeID} ${PEER_COUNT}
-    fi
+    workload_chaincodeID="secretcontract"
+    deploy_chaincode "secretcontract" ${PEER_COUNT}
+    deploy_chaincode "accesscontrol" ${PEER_COUNT}
 
     result_dir="result/$(date +%d-%m)"
     log_dir="log/$(date +%d-%m)"
@@ -85,18 +74,18 @@ function run_exp() {
     mkdir -p ${result_dir}
 
     echo "========================================================="
-    echo "Start launching ${client_count} client processes with data hiding scheme : ${hiding_scheme}, view mode : ${view_mode}."
+    echo "Start launching ${client_count} client processes."
     for i in $(seq ${client_count}) 
     do
-        log_file="${log_dir}/${SCRIPT_NAME}_$(basename ${workload_file} .json)_${hiding_scheme}_${view_mode}_${i}_${client_count}.log"
+        log_file="${log_dir}/${SCRIPT_NAME}_$(basename ${workload_file} .json)_${i}_${client_count}.log"
         echo "    Client ${i} log at ${log_file}"
-        (timeout ${MAX_CLI_RUNNING_TIME} node supplychain_view.js ${ORG_DIR} ${workload_file} ${hiding_scheme} ${view_mode} ${CHANNEL_NAME} ${workload_chaincodeID} > ${log_file} 2>&1 ; exit 0) & # if timeout, the command returns with status code 0 instead of 124; so that the script will not exit. 
+        (timeout ${MAX_CLI_RUNNING_TIME} node access_control.js ${ORG_DIR} ${workload_file} ${CHANNEL_NAME} ${workload_chaincodeID} > ${log_file} 2>&1 ; exit 0) & # if timeout, the command returns with status code 0 instead of 124; so that the script will not exit. 
     done
 
     echo "Wait for at most ${MAX_CLI_RUNNING_TIME} for client processes to finish"
     wait
 
-    aggregated_result_file="${result_dir}/${SCRIPT_NAME}_$(basename ${workload_file} .json)_${hiding_scheme}_${view_mode}_${client_count}clients"
+    aggregated_result_file="${result_dir}/${SCRIPT_NAME}_$(basename ${workload_file} .json)_${client_count}clients"
 
     echo "=========================================================="
     echo "Aggregate client results " | tee ${aggregated_result_file}
@@ -108,7 +97,7 @@ function run_exp() {
     for i in $(seq ${client_count}) 
     do
         # Must be identical to the above
-        log_file="${log_dir}/${SCRIPT_NAME}_$(basename ${workload_file} .json)_${hiding_scheme}_${view_mode}_${i}_${client_count}.log"
+        log_file="${log_dir}/${SCRIPT_NAME}_$(basename ${workload_file} .json)_${i}_${client_count}.log"
 
         last_line="$(tail -1 ${log_file})" 
         if [[ "${last_line}" =~ ^Total* ]]; then
@@ -138,49 +127,32 @@ function run_exp() {
     fi
     echo "=========================================================="
 
-    # network_down
+    network_down
 }
 
 function perf_test() {
     workload_file="$1"
-    hiding_scheme="$2"
-    view_mode="$3"
-    client_count=$4
-    if [[ "$view_mode" == "${REVOCABLE_MODE}" ]] ; then
-        workload_chaincodeID="secretcontract"
-        # deploy_chaincode ${workload_chaincodeID} ${PEER_COUNT}
-    fi
+    client_count=$2
 
-    if [[ "$view_mode" == "${IRREVOCABLE_MODE}" ]] ; then
-        # deploy_chaincode "viewstorage" ${PEER_COUNT}
-
-        workload_chaincodeID="secretcontract"
-        # deploy_chaincode ${workload_chaincodeID} ${PEER_COUNT}
-    fi
-
-    if [[ "$view_mode" == "${VIEWINCONTRACT_MODE}" ]] ; then
-        workload_chaincodeID="onchainview"
-        # deploy_chaincode ${workload_chaincodeID} ${PEER_COUNT}
-    fi
-
+    workload_chaincodeID="secretcontract"
     result_dir="result/$(date +%d-%m)"
     log_dir="log/$(date +%d-%m)"
     mkdir -p ${log_dir}
     mkdir -p ${result_dir}
 
     echo "========================================================="
-    echo "Start launching ${client_count} client processes with data hiding scheme : ${hiding_scheme}, view mode : ${view_mode}."
+    echo "Start launching ${client_count} client processes."
     for i in $(seq ${client_count}) 
     do
-        log_file="${log_dir}/${SCRIPT_NAME}_$(basename ${workload_file} .json)_${hiding_scheme}_${view_mode}_${i}_${client_count}.log"
+        log_file="${log_dir}/${SCRIPT_NAME}_$(basename ${workload_file} .json)_${i}_${client_count}.log"
         echo "    Client ${i} log at ${log_file}"
-        (timeout ${MAX_CLI_RUNNING_TIME} node supplychain_view.js ${ORG_DIR} ${workload_file} ${hiding_scheme} ${view_mode} ${CHANNEL_NAME} ${workload_chaincodeID} > ${log_file} 2>&1 ; exit 0) & # if timeout, the command returns with status code 0 instead of 124; so that the script will not exit. 
+        (timeout ${MAX_CLI_RUNNING_TIME} node access_control.js ${ORG_DIR} ${workload_file} ${CHANNEL_NAME} ${workload_chaincodeID} > ${log_file} 2>&1 ; exit 0) & # if timeout, the command returns with status code 0 instead of 124; so that the script will not exit. 
     done
 
     echo "Wait for at most ${MAX_CLI_RUNNING_TIME} for client processes to finish"
     wait
 
-    aggregated_result_file="${result_dir}/${SCRIPT_NAME}_$(basename ${workload_file} .json)_${hiding_scheme}_${view_mode}_${client_count}clients"
+    aggregated_result_file="${result_dir}/${SCRIPT_NAME}_$(basename ${workload_file} .json)_${client_count}clients"
 
     echo "=========================================================="
     echo "Aggregate client results " | tee ${aggregated_result_file}
@@ -192,7 +164,7 @@ function perf_test() {
     for i in $(seq ${client_count}) 
     do
         # Must be identical to the above
-        log_file="${log_dir}/${SCRIPT_NAME}_$(basename ${workload_file} .json)_${hiding_scheme}_${view_mode}_${i}_${client_count}.log"
+        log_file="${log_dir}/${SCRIPT_NAME}_$(basename ${workload_file} .json)_${i}_${client_count}.log"
 
         last_line="$(tail -1 ${log_file})" 
         if [[ "${last_line}" =~ ^Total* ]]; then
@@ -225,24 +197,22 @@ function perf_test() {
 
 # The main function
 main() {
-    if [[ $# < 2 ]]; then 
-       echo "Insufficient arguments, expecting at least 2, actually $#" >&2 
-       echo "    Usage: perf_end2end.sh [workload_path] [client_count]" >&2 
-       exit 1
-    fi
+    # if [[ $# < 2 ]]; then 
+    #    echo "Insufficient arguments, expecting at least 2, actually $#" >&2 
+    #    echo "    Usage: perf_end2end.sh [workload_path] [client_count]" >&2 
+    #    exit 1
+    # fi
     pushd ${__SCRIPT_DIR} > /dev/null 2>&1
 
-    workload_file="$1"
-    client_count=$2
-
-    # for hiding_scheme in "${ENCRYPTION_SCHEME}" "${HASH_SCHEME}" ; do
-    #     for view_mode in "${REVOCABLE_MODE}" "${IRREVOCABLE_MODE}" "${VIEWINCONTRACT_MODE}"; do
-    for hiding_scheme in "${ENCRYPTION_SCHEME}" ; do
-        for view_mode in "${IRREVOCABLE_MODE}" ; do
-            # run_exp ${workload_file} ${hiding_scheme} ${view_mode} ${client_count}
-            # echo "Sleep for 10s before the next experiment"
-            # sleep 10s
-            perf_test ${workload_file} ${hiding_scheme} ${view_mode} ${client_count}
+    # workload_file="$1"
+    # client_count=$2
+    
+    for workload_file in "workload/access_control_600.json"; do
+        for client_count in 3; do
+            run_exp ${workload_file} ${client_count}
+            # perf_test ${workload_file} ${client_count}
+            echo "Sleep for 10s before the next experiment"
+            sleep 10s
         done
     done
 

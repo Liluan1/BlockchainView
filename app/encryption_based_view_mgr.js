@@ -5,6 +5,7 @@ const util = require('util');
 const cmgr = require('./crypto_mgr.js');
 const global = require('./global.js');
 const LOGGER = require('loglevel');
+const cpabe = require('./cpabe.js');
 LOGGER.setDefaultLevel('debug')
 
 class EncryptionBasedViewMgr {
@@ -20,26 +21,26 @@ class EncryptionBasedViewMgr {
 
         this.view_txns = {}; // associate the viewName with a list of txnIDs
         this.txn_keys = {}; // associate the viewName with the view key
-        this.view_keys = {}; 
+        this.view_keys = {};
     }
 
-    InvokeTxn(func_name, pub_arg, prv_arg, raw_req) { 
+    InvokeTxn(func_name, pub_arg, prv_arg, raw_req) {
         var key = cmgr.CreateKey();
         LOGGER.info(`\tGenerate a random key ${key} for this txn`);
 
-        var secret_payload = cmgr.Encrypt(key, prv_arg); 
+        var secret_payload = cmgr.Encrypt(key, prv_arg);
         LOGGER.info(`\tUse the key to encode the private info ${prv_arg} into ${secret_payload}`);
 
-        return this.fabric_front.InvokeTxn(this.wl_contract_id, func_name, [pub_arg, secret_payload]).then((txnID)=>{
+        return this.fabric_front.InvokeTxn(this.wl_contract_id, func_name, [pub_arg, secret_payload]).then((txnID) => {
             this.txn_keys[txnID] = key;
             LOGGER.info(`\tSend a txn ${txnID} to invoke ${this.wl_contract_id} with the prv arg. `);
             return [0, txnID, raw_req];
         })
-        .catch(error => {
-            LOGGER.error(`Error with code ${error}`);
-            // probably due to MVCC
-            return [error.transactionCode, "", raw_req];
-        });
+            .catch(error => {
+                LOGGER.error(`Error with code ${error}`);
+                // probably due to MVCC
+                return [error.transactionCode, "", raw_req];
+            });
     }
 
     // view predicate is used when in ViewInContractMode
@@ -52,12 +53,12 @@ class EncryptionBasedViewMgr {
             LOGGER.info(`\tGenerate a key ${view_key} for view ${view_name}`);
             this.view_keys[view_name] = view_key;
             // TODO: CreateView function name is hardcoded as in viewstorage.go
-            return this.fabric_front.InvokeTxn(this.vs_contract_id, "CreateView", [view_name, ""]).then(()=>{
+            return this.fabric_front.InvokeTxn(this.vs_contract_id, "CreateView", [view_name, ""]).then(() => {
                 return view_name;
             });
         } else if (this.mode === global.ViewInContractMode) {
             var merge_period_sec = 500;
-            return this.fabric_front.InvokeTxn(this.wl_contract_id, "CreateView", [view_name, view_predicate, merge_period_sec]).then(()=>{
+            return this.fabric_front.InvokeTxn(this.wl_contract_id, "CreateView", [view_name, view_predicate, merge_period_sec]).then(() => {
                 return view_name;
             });;
         } else if (this.mode === global.RevocableMode || this.mode === global.MockFabricMode) { // revocable
@@ -83,7 +84,7 @@ class EncryptionBasedViewMgr {
 
             let msg = JSON.stringify(encoded_view_msg);
             LOGGER.info("\tUpload the encoded message to the view_storage contract. ");
-            return this.fabric_front.InvokeTxn(this.vs_contract_id, "AppendView", [view_name, msg]).then(()=>{
+            return this.fabric_front.InvokeTxn(this.vs_contract_id, "AppendView", [view_name, msg]).then(() => {
                 return view_name;
             }).catch(err => {
                 // May raise MVCC conflict. Temporarily ignore. 
@@ -103,7 +104,7 @@ class EncryptionBasedViewMgr {
 
         if (this.mode === global.RevocableMode || this.mode === global.ViewInContractMode) {
             view_key = cmgr.CreateKey();
-            LOGGER.info(`\tGenerate a view key ${view_key}, used to encode the view message.`) ;
+            LOGGER.info(`\tGenerate a view key ${view_key}, used to encode the view message.`);
 
             var txnIDs = this.view_txns[view_name];
             if (txnIDs === undefined) {
@@ -140,7 +141,7 @@ class EncryptionBasedViewMgr {
         var view_name = distributedData.view_name;
         LOGGER.info(`\tRecover the view ${view_name} to ${view_key} with the private key`);
 
-        return Promise.resolve().then(()=>{
+        return Promise.resolve().then(() => {
             if (distributedData.mode === global.RevocableMode || distributedData.mode === global.ViewInContractMode) {
                 return distributedData.viewData;
             } else {
@@ -148,7 +149,7 @@ class EncryptionBasedViewMgr {
                 // GetView function name is hard coded in viewstorage.go. 
                 return this.fabric_front.Query(this.vs_contract_id, "GetView", [view_name]);
             }
-        }).then((encrypted_view_msg)=>{
+        }).then((encrypted_view_msg) => {
             encrypted_view_msg = JSON.parse(encrypted_view_msg);
             var txnIDs = [];
             var txn_keys = [];
@@ -164,10 +165,10 @@ class EncryptionBasedViewMgr {
 
                 promises.push(this.fabric_front.GetWriteFieldFromTxnId(txnID, prv_field));
             }
-            
+
             // Skip the validation step
             LOGGER.info(`\tValidate for View ${view_name}. Use the recovered txn key to decode the original secret data. `);
-            return Promise.all(promises).then((secrets)=>{
+            return Promise.all(promises).then((secrets) => {
                 for (var i = 0; i < txnIDs.length; i++) {
                     var txnID = txnIDs[i];
                     var secret_data = cmgr.Decrypt(txn_keys[i], secrets[i]);

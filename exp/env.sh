@@ -10,9 +10,9 @@ export ENCRYPTION_SCHEME="encryption"
 export HASH_SCHEME="hash"
 export PLAIN_SCHEME="plain"
 
-export CHANNEL_NAME="viewchannel"
+export CHANNEL_NAME="accesschannel"
 
-# export network_dir="../test-network"
-export NETWORK_DIR="../gcp-network" 
+export NETWORK_DIR="../test-network"
+# export NETWORK_DIR="../gcp-network" 
 export ORG_DIR="${NETWORK_DIR}/organizations/peerOrganizations"
 export MAX_CLI_RUNNING_TIME=200s

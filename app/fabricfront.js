@@ -1,5 +1,5 @@
 
-const { Gateway, DefaultEventHandlerStrategies} = require('fabric-network');
+const { Gateway, DefaultEventHandlerStrategies } = require('fabric-network');
 const { BlockDecoder } = require('fabric-common');
 const path = require('path');
 const fs = require('fs');
@@ -23,7 +23,7 @@ class FabricFront {
             },
             mspId: mspId,
             type: 'X.509',
-        };        
+        };
 
         // Wait for the peer in the org commits this transaction
         let op = DefaultEventHandlerStrategies.MSPID_SCOPE_ALLFORTX;
@@ -32,12 +32,12 @@ class FabricFront {
             fabric_in_docker = true;
         }
         this.gateway_option = {
-            identity:x509Identity ,
+            identity: x509Identity,
             // According to https://hyperledger.github.io/fabric-sdk-node/release-1.4/module-fabric-network.Gateway.html, asLocalhost is set to true only when fabric runs in docker.  
-            discovery: {asLocalhost: fabric_in_docker},
+            discovery: { asLocalhost: fabric_in_docker },
             eventHandlerOptions: {
-                strategy: op 
-            }  
+                strategy: op
+            }
         };
     }
 
@@ -71,7 +71,7 @@ class FabricFront {
         let write_sets = decoded_txn.transactionEnvelope.payload.data.actions[0].payload.action.proposal_response_payload.extension.results.ns_rwset[1].rwset.writes;
 
         for (var i = 0; i < write_sets.length; i++) {
-            if (write_sets[i].key === field ) {
+            if (write_sets[i].key === field) {
                 return write_sets[i].value.toString();
             } else {
                 LOGGER.debug("Writekey: ", writeSets[i].key);
@@ -122,14 +122,14 @@ class FabricFront {
         console.log(`Block Querying the chain with batch size ${num_of_blk_per_batch}...`);
         var batch_count = chain_height / num_of_blk_per_batch;
         var blk_id = 0;
-        for (var i = 0 ; i <= batch_count; i++) {
+        for (var i = 0; i <= batch_count; i++) {
             let blk_query_promises = [];
             console.log(`  Pulling for ${num_of_blk_per_batch} blocks from height ${blk_id} `);
-            for (var j = 0 ; j < num_of_blk_per_batch ; j++) {
-                blk_id+=1;
+            for (var j = 0; j < num_of_blk_per_batch; j++) {
+                blk_id += 1;
                 if (blk_id < chain_height) {
-                    blk_query_promises.push(this.Query('qscc', 'GetBlockByNumber', [this.channel_name, String(blk_id)]).then((result_bytes)=>{
-                        total_storage+=result_bytes.length;
+                    blk_query_promises.push(this.Query('qscc', 'GetBlockByNumber', [this.channel_name, String(blk_id)]).then((result_bytes) => {
+                        total_storage += result_bytes.length;
                     }));
                 }
             }
@@ -151,28 +151,28 @@ class FabricFront {
         var chain_height = await this.GetLedgerHeight();
         console.log(`Chain height = ${chain_height}`);
         for (var blk_height = 0; blk_height < chain_height; blk_height++) {
-                let start_query = new Date();
-                if (blk_height % 10 == 0) {
-                    console.log(`Pulling block ${blk_height}...`);
-                }
-                const result_bytes = await this.Query('qscc', 'GetBlockByNumber', [this.channel_name, String(blk_height)] );
-                // LOGGER.info(`Pull block ${blk_height} with ${result_bytes.length} bytes`);
-                total_storage += result_bytes.length;
+            let start_query = new Date();
+            if (blk_height % 10 == 0) {
+                console.log(`Pulling block ${blk_height}...`);
+            }
+            const result_bytes = await this.Query('qscc', 'GetBlockByNumber', [this.channel_name, String(blk_height)]);
+            // LOGGER.info(`Pull block ${blk_height} with ${result_bytes.length} bytes`);
+            total_storage += result_bytes.length;
 
-                let end_query = new Date();
-                total_query_ms += end_query - start_query;
+            let end_query = new Date();
+            total_query_ms += end_query - start_query;
 
-                let start_verify = new Date();
-                const block = BlockDecoder.decode(result_bytes);
+            let start_verify = new Date();
+            const block = BlockDecoder.decode(result_bytes);
 
-                for (var index = 0; index < block.data.data.length; index++) {
-                    // var channel_header = block.data.data[index].payload.header.channel_header;
-                    // LOGGER.info(`\t TxnID = ${channel_header.tx_id}`);
-                    // TODO: may fail for some workloads. 
-                    // this.InspectTxnRW(block.data.data[index].payload.data);
-                }
-                let end_verify = new Date();
-                total_verification_ms += end_verify - start_verify;
+            for (var index = 0; index < block.data.data.length; index++) {
+                // var channel_header = block.data.data[index].payload.header.channel_header;
+                // LOGGER.info(`\t TxnID = ${channel_header.tx_id}`);
+                // TODO: may fail for some workloads. 
+                // this.InspectTxnRW(block.data.data[index].payload.data);
+            }
+            let end_verify = new Date();
+            total_verification_ms += end_verify - start_verify;
         }
         var result = {};
         result[QUERY_DELAY_FIELD] = total_query_ms;
@@ -231,7 +231,7 @@ class MockFabricFront {
         var total_query_ms = 0;
         var total_verification_ms = 0;
         var total_storage = 0;
-        
+
         var result = {};
         result[QUERY_DELAY_FIELD] = total_query_ms;
         result[VERIFY_DELAY_FIELD] = total_verification_ms;
