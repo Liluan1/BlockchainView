@@ -8,7 +8,6 @@ const FabricFront = require("../app/fabricfront").FabricFront;
 const MockFabricFront = require("../app/fabricfront").MockFabricFront;
 const LEDGER_SIZE_FIELD = require("../app/fabricfront").LEDGER_SIZE_FIELD;
 
-const AccessControlMgr = require("../app/access_control_mgr").AccessControlMgr;
 const EncryptionBasedViewMgr = require("../app/encryption_based_view_mgr").EncryptionBasedViewMgr;
 const HashBasedViewMgr = require("../app/hash_based_view_mgr").HashBasedViewMgr;
 const PlainViewMgr = require("../app/plain_view_mgr").PlainViewMgr;

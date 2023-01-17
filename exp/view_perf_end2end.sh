@@ -239,10 +239,10 @@ main() {
     #     for view_mode in "${REVOCABLE_MODE}" "${IRREVOCABLE_MODE}" "${VIEWINCONTRACT_MODE}"; do
     for hiding_scheme in "${ENCRYPTION_SCHEME}" ; do
         for view_mode in "${IRREVOCABLE_MODE}" ; do
-            # run_exp ${workload_file} ${hiding_scheme} ${view_mode} ${client_count}
+            run_exp ${workload_file} ${hiding_scheme} ${view_mode} ${client_count}
             # echo "Sleep for 10s before the next experiment"
             # sleep 10s
-            perf_test ${workload_file} ${hiding_scheme} ${view_mode} ${client_count}
+            # perf_test ${workload_file} ${hiding_scheme} ${view_mode} ${client_count}
         done
     done
 
