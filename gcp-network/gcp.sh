@@ -48,11 +48,12 @@ function gcp_instance_up() {
         # Stagger requests. Or, gcloud will reject them
         sleep 1s 
         # For some reason, gcloud beta release must be used for source-machine image flag
+            # --source-machine-image=${FABRIC_ENV_IMAGE} \
         gcloud beta compute instances create ${peer_instance} \
             --zone=${peer_zone} \
             --machine-type=${MACHINE_TYPE} \
             --network=${GCP_NETWORK} \
-            --source-machine-image=${FABRIC_ENV_IMAGE} \
+            --image=${FABRIC_ENV_IMAGE} \
             --quiet &
     done
 
