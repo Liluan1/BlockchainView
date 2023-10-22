@@ -46,7 +46,7 @@ class AccessControlMgr {
         }
         // var time;
         // const encrypt_start = new Date();
-        return timer(10).then(() => {
+        return timer(1).then(() => {
             const cipher = "9618055430ae2239a860529df93b4ab1";
             LOGGER.info(`\tEncrypt the key with the access policy "${access_policy}" to get the cipher ${cipher} in 10 ms.`)
             this.cpabe_cipher[txnID] = cipher;
