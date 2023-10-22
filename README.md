@@ -19,16 +19,16 @@ We test the below on our local ubuntu machine:
 # Under gcp-network/;
 . ./env.sh
 gcloud compute instances create fabriccli \
-	--zone=asia-southeast1-a \
-	--machine-type=e2-standard-16 \
+	--zone=asia-east2-a \
+	--machine-type=e2-standard-4 \
 	--network=${GCP_NETWORK} \
     --image-project=ubuntu-os-cloud \
-    --image-family=ubuntu-1804-lts  \
+    --image-family=ubuntu-2004-lts  \
 	--quiet
 ```
 
 ## Setup Client Instance
-* Connect to the instance: ` gcloud compute ssh --zone=asia-southeast1-a fabriccli `
+* Connect to the instance: ` gcloud compute ssh --zone=asia-east2-a fabriccli `
 * Log in with the GCP account: `gcloud auth login`
 * Install below dependencies: 
 

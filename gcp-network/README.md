@@ -5,7 +5,7 @@ USE WITH CARE!!!
 
 . ./env.sh
 gcloud beta compute instances create fabriccli \
-	--zone=asia-southeast1-a \
+	--zone=asia-east2-a \
 	--machine-type=${MACHINE_TYPE} \
 	--network=${GCP_NETWORK} \
 	--source-machine-image=${FABRIC_ENV_IMAGE} \
@@ -25,8 +25,8 @@ gcloud beta compute instances create fabriccli \
 # Before: Per-experimental-set
 ```
 
-gcloud compute instances start fabriccli --zone=asia-southeast1-a
-gcloud compute ssh fabriccli --zone=asia-southeast1-a
+gcloud compute instances start fabriccli --zone=asia-east2-a
+gcloud compute ssh fabriccli --zone=asia-east2-a
 
 # in fabriccli
 ./gcp.sh instance_up
