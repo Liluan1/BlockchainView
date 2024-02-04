@@ -1,0 +1,1684 @@
+{
+    "transactions": [
+        [
+            {
+                "attributes": "\"osWindows\" \"appDesktop\" \"browserFirefox\"",
+                "policy": "osWindows or appDesktop or browserFirefox"
+            },
+            {
+                "attributes": "\"browserOther\" \"timeNight\" \"envOther\" \"depHR\" \"osMac\"",
+                "policy": "browserOther and timeNight and envOther and depHR or osMac"
+            },
+            {
+                "attributes": "\"dataSensitive\"",
+                "policy": "dataSensitive"
+            },
+            {
+                "attributes": "\"envDev\" \"envTest\" \"roleEmployee\" \"roleAuditor\"",
+                "policy": "envDev and envTest and roleEmployee and roleAuditor"
+            },
+            {
+                "attributes": "\"deviceTablet\"",
+                "policy": "deviceTablet"
+            },
+            {
+                "attributes": "\"browserChrome\" \"roleUser\"",
+                "policy": "browserChrome or roleUser"
+            },
+            {
+                "attributes": "\"resourceOther\"",
+                "policy": "resourceOther"
+            },
+            {
+                "attributes": "\"browserSafari\" \"resourceProduct\" \"locEU\" \"dataNonSensitive\"",
+                "policy": "browserSafari or resourceProduct or locEU or dataNonSensitive"
+            },
+            {
+                "attributes": "\"depSales\" \"browserIE\" \"envProd\"",
+                "policy": "depSales and browserIE and envProd"
+            },
+            {
+                "attributes": "\"timeOther\" \"envOther\" \"roleAdmin\"",
+                "policy": "timeOther or envOther or roleAdmin"
+            }
+        ],
+        [
+            {
+                "attributes": "\"roleSupplier\" \"appOther\" \"timeWeekend\" \"roleEmployee\"",
+                "policy": "roleSupplier or appOther or timeWeekend or roleEmployee"
+            },
+            {
+                "attributes": "\"envDev\" \"activeTrue\" \"roleAuditor\"",
+                "policy": "envDev or activeTrue and roleAuditor"
+            },
+            {
+                "attributes": "\"roleOwner\"",
+                "policy": "roleOwner"
+            },
+            {
+                "attributes": "\"timeOther\" \"browserIE\"",
+                "policy": "timeOther and browserIE"
+            },
+            {
+                "attributes": "\"envOther\"",
+                "policy": "envOther"
+            },
+            {
+                "attributes": "\"dataOther\" \"ipUK\"",
+                "policy": "dataOther and ipUK"
+            },
+            {
+                "attributes": "\"activeFalse\" \"roleManager\" \"appMobile\"",
+                "policy": "activeFalse or roleManager or appMobile"
+            },
+            {
+                "attributes": "\"roleSupplier\" \"depSales\" \"actionDelete\"",
+                "policy": "roleSupplier and depSales and actionDelete"
+            },
+            {
+                "attributes": "\"roleEmployee\" \"resourceOther\" \"roleUser\"",
+                "policy": "roleEmployee and resourceOther and roleUser"
+            },
+            {
+                "attributes": "\"roleSupplier\" \"osLinux\" \"timeOther\" \"envTest\" \"roleEmployee\"",
+                "policy": "roleSupplier and osLinux or timeOther and envTest and roleEmployee"
+            }
+        ],
+        [
+            {
+                "attributes": "\"dataOther\"",
+                "policy": "dataOther"
+            },
+            {
+                "attributes": "\"activeFalse\" \"timeWeekend\" \"resourceOrder\"",
+                "policy": "activeFalse or timeWeekend or resourceOrder"
+            },
+            {
+                "attributes": "\"osOther\" \"browserSafari\" \"roleOwner\" \"roleAuditor\"",
+                "policy": "osOther or browserSafari or roleOwner or roleAuditor"
+            },
+            {
+                "attributes": "\"dataNonSensitive\"",
+                "policy": "dataNonSensitive"
+            },
+            {
+                "attributes": "\"activeOther\"",
+                "policy": "activeOther"
+            },
+            {
+                "attributes": "\"timeDay\" \"envTest\"",
+                "policy": "timeDay or envTest"
+            },
+            {
+                "attributes": "\"timeDay\" \"envTest\"",
+                "policy": "timeDay and envTest"
+            },
+            {
+                "attributes": "\"roleAdmin\" \"roleUser\" \"timeNight\" \"ipUK\" \"activeTrue\"",
+                "policy": "roleAdmin and roleUser and timeNight and ipUK and activeTrue"
+            },
+            {
+                "attributes": "\"roleGuest\" \"depIT\"",
+                "policy": "roleGuest or depIT"
+            },
+            {
+                "attributes": "\"roleManager\" \"activeTrue\" \"timeNight\"",
+                "policy": "roleManager and activeTrue and timeNight"
+            }
+        ],
+        [
+            {
+                "attributes": "\"appOther\" \"browserIE\" \"browserSafari\" \"ipUK\"",
+                "policy": "appOther and browserIE and browserSafari or ipUK"
+            },
+            {
+                "attributes": "\"activeOther\" \"actionOther\"",
+                "policy": "activeOther and actionOther"
+            },
+            {
+                "attributes": "\"appOther\" \"deviceOther\" \"timeNight\" \"roleOther\"",
+                "policy": "appOther and deviceOther and timeNight or roleOther"
+            },
+            {
+                "attributes": "\"browserChrome\" \"locEU\"",
+                "policy": "browserChrome and locEU"
+            },
+            {
+                "attributes": "\"osWindows\" \"depFinance\" \"roleUser\"",
+                "policy": "osWindows and depFinance or roleUser"
+            },
+            {
+                "attributes": "\"browserOther\" \"timeWeekend\" \"deviceDesktop\" \"osOther\" \"roleEmployee\"",
+                "policy": "browserOther and timeWeekend or deviceDesktop or osOther or roleEmployee"
+            },
+            {
+                "attributes": "\"locEU\"",
+                "policy": "locEU"
+            },
+            {
+                "attributes": "\"envTest\" \"timeWeekday\"",
+                "policy": "envTest and timeWeekday"
+            },
+            {
+                "attributes": "\"browserIE\"",
+                "policy": "browserIE"
+            },
+            {
+                "attributes": "\"osWindows\" \"timeNight\"",
+                "policy": "osWindows or timeNight"
+            }
+        ],
+        [
+            {
+                "attributes": "\"osWindows\" \"actionWrite\" \"roleCustomer\" \"timeNight\"",
+                "policy": "osWindows or actionWrite and roleCustomer or timeNight"
+            },
+            {
+                "attributes": "\"roleCustomer\" \"envTest\" \"locUK\" \"roleAuditor\" \"browserChrome\"",
+                "policy": "roleCustomer and envTest or locUK and roleAuditor and browserChrome"
+            },
+            {
+                "attributes": "\"deviceDesktop\" \"depFinance\"",
+                "policy": "deviceDesktop and depFinance"
+            },
+            {
+                "attributes": "\"activeOther\"",
+                "policy": "activeOther"
+            },
+            {
+                "attributes": "\"roleManager\" \"roleAdmin\"",
+                "policy": "roleManager and roleAdmin"
+            },
+            {
+                "attributes": "\"envProd\"",
+                "policy": "envProd"
+            },
+            {
+                "attributes": "\"envDev\" \"osWindows\"",
+                "policy": "envDev or osWindows"
+            },
+            {
+                "attributes": "\"ipEU\" \"resourceProduct\" \"resourceOther\"",
+                "policy": "ipEU and resourceProduct and resourceOther"
+            },
+            {
+                "attributes": "\"browserIE\" \"timeWeekend\" \"dataOther\" \"actionDelete\" \"roleManager\"",
+                "policy": "browserIE or timeWeekend or dataOther and actionDelete or roleManager"
+            },
+            {
+                "attributes": "\"roleOther\" \"roleOwner\"",
+                "policy": "roleOther or roleOwner"
+            }
+        ],
+        [
+            {
+                "attributes": "\"osMac\" \"ipEU\" \"envProd\"",
+                "policy": "osMac or ipEU and envProd"
+            },
+            {
+                "attributes": "\"osMac\" \"osOther\" \"resourceProduct\" \"resourceOrder\"",
+                "policy": "osMac and osOther or resourceProduct or resourceOrder"
+            },
+            {
+                "attributes": "\"locUK\" \"activeFalse\" \"resourceProduct\" \"envProd\"",
+                "policy": "locUK and activeFalse or resourceProduct and envProd"
+            },
+            {
+                "attributes": "\"roleCustomer\" \"roleOwner\" \"roleAdmin\" \"dataNonSensitive\"",
+                "policy": "roleCustomer and roleOwner or roleAdmin and dataNonSensitive"
+            },
+            {
+                "attributes": "\"browserIE\" \"envTest\" \"ipUK\" \"osMac\" \"activeTrue\"",
+                "policy": "browserIE and envTest and ipUK or osMac or activeTrue"
+            },
+            {
+                "attributes": "\"timeWeekday\"",
+                "policy": "timeWeekday"
+            },
+            {
+                "attributes": "\"ipUS\" \"roleUser\" \"resourceOther\" \"envDev\" \"depIT\"",
+                "policy": "ipUS or roleUser and resourceOther or envDev or depIT"
+            },
+            {
+                "attributes": "\"depIT\"",
+                "policy": "depIT"
+            },
+            {
+                "attributes": "\"roleGuest\" \"appDesktop\"",
+                "policy": "roleGuest and appDesktop"
+            },
+            {
+                "attributes": "\"appWeb\" \"osMac\" \"roleOther\" \"ipUK\"",
+                "policy": "appWeb or osMac and roleOther and ipUK"
+            }
+        ],
+        [
+            {
+                "attributes": "\"envDev\" \"roleCustomer\"",
+                "policy": "envDev and roleCustomer"
+            },
+            {
+                "attributes": "\"timeOther\" \"dataOther\" \"osOther\" \"envDev\" \"envProd\"",
+                "policy": "timeOther or dataOther and osOther or envDev or envProd"
+            },
+            {
+                "attributes": "\"timeDay\" \"osLinux\" \"depMarketing\"",
+                "policy": "timeDay and osLinux or depMarketing"
+            },
+            {
+                "attributes": "\"envDev\" \"resourceOrder\" \"envProd\" \"deviceTablet\"",
+                "policy": "envDev or resourceOrder and envProd or deviceTablet"
+            },
+            {
+                "attributes": "\"envTest\" \"timeWeekday\" \"browserFirefox\" \"activeOther\" \"roleAuditor\"",
+                "policy": "envTest or timeWeekday or browserFirefox and activeOther or roleAuditor"
+            },
+            {
+                "attributes": "\"timeDay\" \"ipUS\" \"roleOther\" \"locEU\" \"roleManager\"",
+                "policy": "timeDay or ipUS and roleOther or locEU or roleManager"
+            },
+            {
+                "attributes": "\"actionRead\" \"roleOther\" \"envProd\" \"osMac\"",
+                "policy": "actionRead or roleOther or envProd or osMac"
+            },
+            {
+                "attributes": "\"dataSensitive\" \"depOther\" \"browserOther\" \"depSales\"",
+                "policy": "dataSensitive and depOther and browserOther and depSales"
+            },
+            {
+                "attributes": "\"actionDelete\" \"browserSafari\"",
+                "policy": "actionDelete and browserSafari"
+            },
+            {
+                "attributes": "\"envTest\" \"roleAdmin\" \"deviceTablet\"",
+                "policy": "envTest or roleAdmin or deviceTablet"
+            }
+        ],
+        [
+            {
+                "attributes": "\"timeOther\" \"ipUS\" \"browserFirefox\" \"appWeb\" \"activeOther\"",
+                "policy": "timeOther and ipUS or browserFirefox and appWeb or activeOther"
+            },
+            {
+                "attributes": "\"appWeb\" \"activeOther\" \"dataNonSensitive\"",
+                "policy": "appWeb or activeOther or dataNonSensitive"
+            },
+            {
+                "attributes": "\"appOther\" \"osMac\" \"ipUK\" \"browserFirefox\"",
+                "policy": "appOther or osMac or ipUK or browserFirefox"
+            },
+            {
+                "attributes": "\"deviceDesktop\" \"envOther\" \"locUS\" \"resourceUser\" \"actionWrite\"",
+                "policy": "deviceDesktop and envOther or locUS and resourceUser and actionWrite"
+            },
+            {
+                "attributes": "\"deviceOther\"",
+                "policy": "deviceOther"
+            },
+            {
+                "attributes": "\"envDev\" \"locUK\"",
+                "policy": "envDev and locUK"
+            },
+            {
+                "attributes": "\"depIT\" \"envTest\" \"roleAdmin\"",
+                "policy": "depIT and envTest or roleAdmin"
+            },
+            {
+                "attributes": "\"resourceProduct\"",
+                "policy": "resourceProduct"
+            },
+            {
+                "attributes": "\"depOther\" \"activeTrue\" \"locOther\"",
+                "policy": "depOther or activeTrue and locOther"
+            },
+            {
+                "attributes": "\"timeWeekend\" \"appDesktop\" \"roleUser\" \"depMarketing\" \"ipUK\"",
+                "policy": "timeWeekend and appDesktop or roleUser or depMarketing or ipUK"
+            }
+        ],
+        [
+            {
+                "attributes": "\"actionRead\"",
+                "policy": "actionRead"
+            },
+            {
+                "attributes": "\"dataOther\"",
+                "policy": "dataOther"
+            },
+            {
+                "attributes": "\"osWindows\" \"dataOther\" \"deviceDesktop\" \"actionOther\" \"deviceMobile\"",
+                "policy": "osWindows and dataOther or deviceDesktop and actionOther and deviceMobile"
+            },
+            {
+                "attributes": "\"depHR\" \"timeWeekday\"",
+                "policy": "depHR or timeWeekday"
+            },
+            {
+                "attributes": "\"roleManager\" \"browserOther\" \"ipUS\"",
+                "policy": "roleManager or browserOther and ipUS"
+            },
+            {
+                "attributes": "\"timeOther\" \"roleCustomer\" \"appDesktop\" \"appWeb\" \"osOther\"",
+                "policy": "timeOther or roleCustomer and appDesktop and appWeb and osOther"
+            },
+            {
+                "attributes": "\"appOther\" \"roleAdmin\"",
+                "policy": "appOther or roleAdmin"
+            },
+            {
+                "attributes": "\"deviceDesktop\" \"ipUS\"",
+                "policy": "deviceDesktop or ipUS"
+            },
+            {
+                "attributes": "\"appWeb\" \"ipEU\" \"resourceProduct\" \"actionOther\" \"roleEmployee\"",
+                "policy": "appWeb or ipEU or resourceProduct or actionOther or roleEmployee"
+            },
+            {
+                "attributes": "\"ipEU\" \"deviceOther\" \"ipOther\"",
+                "policy": "ipEU and deviceOther or ipOther"
+            }
+        ],
+        [
+            {
+                "attributes": "\"roleManager\" \"depHR\"",
+                "policy": "roleManager or depHR"
+            },
+            {
+                "attributes": "\"dataSensitive\" \"browserOther\" \"timeWeekend\" \"depHR\" \"deviceTablet\"",
+                "policy": "dataSensitive or browserOther or timeWeekend or depHR or deviceTablet"
+            },
+            {
+                "attributes": "\"actionRead\" \"envOther\" \"depFinance\" \"deviceTablet\"",
+                "policy": "actionRead and envOther and depFinance or deviceTablet"
+            },
+            {
+                "attributes": "\"roleSupplier\"",
+                "policy": "roleSupplier"
+            },
+            {
+                "attributes": "\"actionDelete\" \"dataOther\" \"locEU\"",
+                "policy": "actionDelete or dataOther or locEU"
+            },
+            {
+                "attributes": "\"depOther\" \"envOther\" \"ipEU\"",
+                "policy": "depOther or envOther or ipEU"
+            },
+            {
+                "attributes": "\"dataSensitive\" \"appDesktop\" \"roleUser\" \"browserChrome\" \"deviceTablet\"",
+                "policy": "dataSensitive and appDesktop and roleUser and browserChrome or deviceTablet"
+            },
+            {
+                "attributes": "\"depOther\" \"browserChrome\" \"roleOther\" \"roleUser\"",
+                "policy": "depOther or browserChrome and roleOther or roleUser"
+            },
+            {
+                "attributes": "\"appDesktop\"",
+                "policy": "appDesktop"
+            },
+            {
+                "attributes": "\"dataOther\" \"ipOther\" \"depMarketing\" \"locEU\" \"depIT\"",
+                "policy": "dataOther and ipOther and depMarketing or locEU and depIT"
+            }
+        ],
+        [
+            {
+                "attributes": "\"roleCustomer\" \"locUK\" \"activeOther\" \"resourceOther\" \"roleManager\"",
+                "policy": "roleCustomer or locUK or activeOther and resourceOther and roleManager"
+            },
+            {
+                "attributes": "\"deviceOther\" \"roleAdmin\" \"depFinance\" \"activeOther\" \"resourceProduct\"",
+                "policy": "deviceOther or roleAdmin or depFinance or activeOther and resourceProduct"
+            },
+            {
+                "attributes": "\"roleManager\" \"activeFalse\" \"resourceUser\"",
+                "policy": "roleManager and activeFalse and resourceUser"
+            },
+            {
+                "attributes": "\"activeOther\"",
+                "policy": "activeOther"
+            },
+            {
+                "attributes": "\"osLinux\" \"dataSensitive\" \"depMarketing\" \"actionDelete\" \"envProd\"",
+                "policy": "osLinux or dataSensitive or depMarketing and actionDelete and envProd"
+            },
+            {
+                "attributes": "\"locUS\"",
+                "policy": "locUS"
+            },
+            {
+                "attributes": "\"roleGuest\"",
+                "policy": "roleGuest"
+            },
+            {
+                "attributes": "\"envDev\" \"activeTrue\"",
+                "policy": "envDev or activeTrue"
+            },
+            {
+                "attributes": "\"envProd\"",
+                "policy": "envProd"
+            },
+            {
+                "attributes": "\"browserIE\" \"roleOwner\"",
+                "policy": "browserIE and roleOwner"
+            }
+        ],
+        [
+            {
+                "attributes": "\"depMarketing\"",
+                "policy": "depMarketing"
+            },
+            {
+                "attributes": "\"depOther\"",
+                "policy": "depOther"
+            },
+            {
+                "attributes": "\"browserChrome\"",
+                "policy": "browserChrome"
+            },
+            {
+                "attributes": "\"appMobile\"",
+                "policy": "appMobile"
+            },
+            {
+                "attributes": "\"osLinux\" \"actionRead\" \"browserFirefox\" \"depFinance\" \"depMarketing\"",
+                "policy": "osLinux or actionRead or browserFirefox and depFinance or depMarketing"
+            },
+            {
+                "attributes": "\"depIT\"",
+                "policy": "depIT"
+            },
+            {
+                "attributes": "\"osMac\" \"browserIE\" \"locOther\"",
+                "policy": "osMac or browserIE and locOther"
+            },
+            {
+                "attributes": "\"dataSensitive\" \"timeDay\" \"browserOther\" \"appDesktop\" \"activeFalse\"",
+                "policy": "dataSensitive and timeDay and browserOther and appDesktop or activeFalse"
+            },
+            {
+                "attributes": "\"roleManager\"",
+                "policy": "roleManager"
+            },
+            {
+                "attributes": "\"dataOther\" \"depMarketing\"",
+                "policy": "dataOther and depMarketing"
+            }
+        ],
+        [
+            {
+                "attributes": "\"roleSupplier\" \"activeOther\"",
+                "policy": "roleSupplier and activeOther"
+            },
+            {
+                "attributes": "\"resourceProduct\"",
+                "policy": "resourceProduct"
+            },
+            {
+                "attributes": "\"actionWrite\"",
+                "policy": "actionWrite"
+            },
+            {
+                "attributes": "\"roleEmployee\"",
+                "policy": "roleEmployee"
+            },
+            {
+                "attributes": "\"osMac\" \"timeOther\" \"appMobile\" \"appDesktop\"",
+                "policy": "osMac or timeOther or appMobile or appDesktop"
+            },
+            {
+                "attributes": "\"appWeb\" \"depOther\" \"envDev\"",
+                "policy": "appWeb or depOther and envDev"
+            },
+            {
+                "attributes": "\"actionDelete\" \"dataNonSensitive\"",
+                "policy": "actionDelete or dataNonSensitive"
+            },
+            {
+                "attributes": "\"envTest\" \"timeWeekday\" \"ipOther\" \"dataNonSensitive\" \"actionOther\"",
+                "policy": "envTest or timeWeekday or ipOther and dataNonSensitive or actionOther"
+            },
+            {
+                "attributes": "\"locUK\"",
+                "policy": "locUK"
+            },
+            {
+                "attributes": "\"timeDay\"",
+                "policy": "timeDay"
+            }
+        ],
+        [
+            {
+                "attributes": "\"dataSensitive\" \"roleUser\" \"browserFirefox\" \"browserSafari\" \"activeTrue\"",
+                "policy": "dataSensitive or roleUser and browserFirefox or browserSafari or activeTrue"
+            },
+            {
+                "attributes": "\"appOther\" \"roleOther\" \"resourceUser\"",
+                "policy": "appOther and roleOther and resourceUser"
+            },
+            {
+                "attributes": "\"timeDay\" \"appOther\" \"roleGuest\" \"roleAuditor\" \"roleEmployee\"",
+                "policy": "timeDay or appOther or roleGuest and roleAuditor and roleEmployee"
+            },
+            {
+                "attributes": "\"browserFirefox\" \"locUK\" \"ipUK\" \"roleManager\" \"activeTrue\"",
+                "policy": "browserFirefox and locUK and ipUK and roleManager and activeTrue"
+            },
+            {
+                "attributes": "\"browserSafari\" \"ipUK\" \"resourceUser\" \"activeTrue\" \"depIT\"",
+                "policy": "browserSafari and ipUK and resourceUser or activeTrue and depIT"
+            },
+            {
+                "attributes": "\"activeFalse\"",
+                "policy": "activeFalse"
+            },
+            {
+                "attributes": "\"depOther\" \"roleAdmin\"",
+                "policy": "depOther and roleAdmin"
+            },
+            {
+                "attributes": "\"appWeb\" \"actionWrite\" \"roleAuditor\" \"deviceTablet\"",
+                "policy": "appWeb and actionWrite or roleAuditor or deviceTablet"
+            },
+            {
+                "attributes": "\"depOther\" \"ipUS\" \"deviceOther\" \"roleOther\"",
+                "policy": "depOther or ipUS or deviceOther or roleOther"
+            },
+            {
+                "attributes": "\"envDev\"",
+                "policy": "envDev"
+            }
+        ],
+        [
+            {
+                "attributes": "\"roleAuditor\"",
+                "policy": "roleAuditor"
+            },
+            {
+                "attributes": "\"depSales\" \"browserIE\"",
+                "policy": "depSales and browserIE"
+            },
+            {
+                "attributes": "\"resourceProduct\"",
+                "policy": "resourceProduct"
+            },
+            {
+                "attributes": "\"actionRead\" \"roleAdmin\" \"timeWeekday\" \"depIT\"",
+                "policy": "actionRead and roleAdmin or timeWeekday and depIT"
+            },
+            {
+                "attributes": "\"timeWeekday\"",
+                "policy": "timeWeekday"
+            },
+            {
+                "attributes": "\"roleSupplier\" \"deviceOther\" \"envDev\"",
+                "policy": "roleSupplier and deviceOther or envDev"
+            },
+            {
+                "attributes": "\"browserChrome\" \"depIT\"",
+                "policy": "browserChrome or depIT"
+            },
+            {
+                "attributes": "\"timeDay\" \"activeTrue\" \"depFinance\" \"resourceUser\"",
+                "policy": "timeDay and activeTrue or depFinance or resourceUser"
+            },
+            {
+                "attributes": "\"envDev\" \"ipUK\" \"roleAdmin\" \"depMarketing\"",
+                "policy": "envDev or ipUK and roleAdmin and depMarketing"
+            },
+            {
+                "attributes": "\"osOther\" \"timeWeekday\"",
+                "policy": "osOther or timeWeekday"
+            }
+        ],
+        [
+            {
+                "attributes": "\"depHR\" \"deviceTablet\"",
+                "policy": "depHR or deviceTablet"
+            },
+            {
+                "attributes": "\"browserFirefox\"",
+                "policy": "browserFirefox"
+            },
+            {
+                "attributes": "\"locUK\" \"browserOther\" \"resourceOther\" \"deviceTablet\"",
+                "policy": "locUK or browserOther and resourceOther and deviceTablet"
+            },
+            {
+                "attributes": "\"resourceProduct\" \"ipUK\"",
+                "policy": "resourceProduct or ipUK"
+            },
+            {
+                "attributes": "\"resourceUser\"",
+                "policy": "resourceUser"
+            },
+            {
+                "attributes": "\"timeOther\" \"deviceOther\" \"roleOther\" \"deviceMobile\"",
+                "policy": "timeOther and deviceOther and roleOther and deviceMobile"
+            },
+            {
+                "attributes": "\"appDesktop\" \"depIT\" \"envOther\" \"ipOther\"",
+                "policy": "appDesktop and depIT or envOther and ipOther"
+            },
+            {
+                "attributes": "\"depSales\" \"roleUser\" \"timeNight\" \"envOther\" \"actionWrite\"",
+                "policy": "depSales and roleUser and timeNight or envOther or actionWrite"
+            },
+            {
+                "attributes": "\"envDev\" \"roleOwner\" \"deviceTablet\"",
+                "policy": "envDev and roleOwner and deviceTablet"
+            },
+            {
+                "attributes": "\"osMac\" \"roleEmployee\" \"ipUK\"",
+                "policy": "osMac and roleEmployee or ipUK"
+            }
+        ],
+        [
+            {
+                "attributes": "\"browserOther\" \"activeOther\" \"resourceProduct\" \"roleEmployee\" \"activeTrue\"",
+                "policy": "browserOther or activeOther and resourceProduct or roleEmployee or activeTrue"
+            },
+            {
+                "attributes": "\"resourceUser\"",
+                "policy": "resourceUser"
+            },
+            {
+                "attributes": "\"osMac\" \"roleEmployee\"",
+                "policy": "osMac or roleEmployee"
+            },
+            {
+                "attributes": "\"appMobile\"",
+                "policy": "appMobile"
+            },
+            {
+                "attributes": "\"roleOther\"",
+                "policy": "roleOther"
+            },
+            {
+                "attributes": "\"roleOther\" \"envProd\"",
+                "policy": "roleOther or envProd"
+            },
+            {
+                "attributes": "\"resourceOther\" \"actionWrite\" \"appMobile\" \"timeWeekday\"",
+                "policy": "resourceOther and actionWrite or appMobile and timeWeekday"
+            },
+            {
+                "attributes": "\"appWeb\" \"depSales\" \"timeDay\" \"browserIE\"",
+                "policy": "appWeb or depSales and timeDay or browserIE"
+            },
+            {
+                "attributes": "\"locUK\" \"resourceOrder\"",
+                "policy": "locUK and resourceOrder"
+            },
+            {
+                "attributes": "\"envTest\"",
+                "policy": "envTest"
+            }
+        ],
+        [
+            {
+                "attributes": "\"timeOther\" \"browserOther\" \"browserFirefox\" \"ipOther\" \"resourceUser\"",
+                "policy": "timeOther or browserOther or browserFirefox or ipOther and resourceUser"
+            },
+            {
+                "attributes": "\"envDev\" \"depHR\" \"resourceProduct\"",
+                "policy": "envDev or depHR or resourceProduct"
+            },
+            {
+                "attributes": "\"osWindows\" \"deviceDesktop\" \"ipEU\" \"resourceOther\" \"depIT\"",
+                "policy": "osWindows and deviceDesktop and ipEU and resourceOther and depIT"
+            },
+            {
+                "attributes": "\"browserSafari\" \"roleEmployee\" \"resourceOrder\"",
+                "policy": "browserSafari or roleEmployee and resourceOrder"
+            },
+            {
+                "attributes": "\"dataSensitive\" \"appMobile\" \"timeWeekend\" \"locOther\"",
+                "policy": "dataSensitive or appMobile or timeWeekend and locOther"
+            },
+            {
+                "attributes": "\"deviceDesktop\" \"resourceOrder\" \"timeWeekend\" \"roleUser\"",
+                "policy": "deviceDesktop and resourceOrder or timeWeekend and roleUser"
+            },
+            {
+                "attributes": "\"ipEU\" \"roleOther\"",
+                "policy": "ipEU or roleOther"
+            },
+            {
+                "attributes": "\"depSales\" \"browserIE\" \"depMarketing\" \"roleManager\" \"envProd\"",
+                "policy": "depSales and browserIE or depMarketing and roleManager and envProd"
+            },
+            {
+                "attributes": "\"deviceDesktop\" \"osMac\" \"appWeb\" \"browserChrome\" \"deviceTablet\"",
+                "policy": "deviceDesktop or osMac or appWeb or browserChrome and deviceTablet"
+            },
+            {
+                "attributes": "\"osWindows\" \"locOther\" \"dataNonSensitive\" \"locUS\" \"resourceOrder\"",
+                "policy": "osWindows or locOther or dataNonSensitive or locUS or resourceOrder"
+            }
+        ],
+        [
+            {
+                "attributes": "\"envDev\" \"deviceTablet\"",
+                "policy": "envDev and deviceTablet"
+            },
+            {
+                "attributes": "\"timeWeekend\" \"ipUK\"",
+                "policy": "timeWeekend and ipUK"
+            },
+            {
+                "attributes": "\"roleSupplier\" \"envTest\" \"roleAdmin\" \"actionDelete\" \"roleOther\"",
+                "policy": "roleSupplier or envTest and roleAdmin or actionDelete or roleOther"
+            },
+            {
+                "attributes": "\"roleGuest\" \"timeWeekend\" \"resourceOrder\" \"dataNonSensitive\"",
+                "policy": "roleGuest and timeWeekend or resourceOrder or dataNonSensitive"
+            },
+            {
+                "attributes": "\"roleAuditor\" \"roleCustomer\" \"roleAdmin\"",
+                "policy": "roleAuditor or roleCustomer or roleAdmin"
+            },
+            {
+                "attributes": "\"actionWrite\" \"deviceMobile\"",
+                "policy": "actionWrite or deviceMobile"
+            },
+            {
+                "attributes": "\"envDev\" \"depHR\" \"browserFirefox\"",
+                "policy": "envDev and depHR or browserFirefox"
+            },
+            {
+                "attributes": "\"activeFalse\"",
+                "policy": "activeFalse"
+            },
+            {
+                "attributes": "\"osLinux\" \"osWindows\" \"activeFalse\" \"appDesktop\"",
+                "policy": "osLinux and osWindows or activeFalse or appDesktop"
+            },
+            {
+                "attributes": "\"timeNight\" \"deviceTablet\"",
+                "policy": "timeNight and deviceTablet"
+            }
+        ],
+        [
+            {
+                "attributes": "\"depSales\" \"actionRead\" \"roleGuest\" \"roleAuditor\"",
+                "policy": "depSales and actionRead or roleGuest or roleAuditor"
+            },
+            {
+                "attributes": "\"dataSensitive\" \"ipEU\" \"roleAuditor\"",
+                "policy": "dataSensitive and ipEU or roleAuditor"
+            },
+            {
+                "attributes": "\"depOther\" \"roleGuest\" \"timeNight\"",
+                "policy": "depOther and roleGuest and timeNight"
+            },
+            {
+                "attributes": "\"osMac\" \"dataNonSensitive\"",
+                "policy": "osMac and dataNonSensitive"
+            },
+            {
+                "attributes": "\"locEU\"",
+                "policy": "locEU"
+            },
+            {
+                "attributes": "\"depSales\" \"roleGuest\" \"deviceOther\"",
+                "policy": "depSales or roleGuest or deviceOther"
+            },
+            {
+                "attributes": "\"timeDay\" \"roleAdmin\" \"locUK\" \"depOther\" \"timeNight\"",
+                "policy": "timeDay or roleAdmin and locUK and depOther and timeNight"
+            },
+            {
+                "attributes": "\"locOther\"",
+                "policy": "locOther"
+            },
+            {
+                "attributes": "\"depOther\" \"browserSafari\"",
+                "policy": "depOther or browserSafari"
+            },
+            {
+                "attributes": "\"browserChrome\" \"envOther\" \"appMobile\" \"deviceMobile\"",
+                "policy": "browserChrome and envOther and appMobile and deviceMobile"
+            }
+        ],
+        [
+            {
+                "attributes": "\"actionRead\" \"appOther\" \"browserSafari\" \"resourceProduct\" \"roleManager\"",
+                "policy": "actionRead or appOther or browserSafari and resourceProduct or roleManager"
+            },
+            {
+                "attributes": "\"roleAdmin\" \"browserSafari\" \"resourceProduct\" \"deviceMobile\" \"envDev\"",
+                "policy": "roleAdmin or browserSafari or resourceProduct and deviceMobile and envDev"
+            },
+            {
+                "attributes": "\"locUK\" \"browserChrome\" \"envTest\" \"osLinux\"",
+                "policy": "locUK or browserChrome or envTest or osLinux"
+            },
+            {
+                "attributes": "\"resourceProduct\"",
+                "policy": "resourceProduct"
+            },
+            {
+                "attributes": "\"envTest\" \"roleUser\" \"roleOther\" \"ipUK\" \"resourceOrder\"",
+                "policy": "envTest and roleUser or roleOther or ipUK or resourceOrder"
+            },
+            {
+                "attributes": "\"appWeb\" \"osWindows\" \"roleEmployee\" \"roleAuditor\"",
+                "policy": "appWeb and osWindows or roleEmployee and roleAuditor"
+            },
+            {
+                "attributes": "\"appOther\" \"depHR\" \"roleManager\" \"locOther\"",
+                "policy": "appOther or depHR and roleManager or locOther"
+            },
+            {
+                "attributes": "\"locUK\" \"appMobile\" \"roleOther\" \"envDev\"",
+                "policy": "locUK and appMobile or roleOther and envDev"
+            },
+            {
+                "attributes": "\"timeNight\" \"roleAdmin\" \"deviceTablet\"",
+                "policy": "timeNight or roleAdmin or deviceTablet"
+            },
+            {
+                "attributes": "\"timeDay\" \"envTest\" \"roleAuditor\" \"deviceMobile\" \"activeTrue\"",
+                "policy": "timeDay or envTest and roleAuditor and deviceMobile or activeTrue"
+            }
+        ],
+        [
+            {
+                "attributes": "\"actionRead\" \"activeFalse\" \"ipEU\" \"appDesktop\"",
+                "policy": "actionRead or activeFalse and ipEU and appDesktop"
+            },
+            {
+                "attributes": "\"envProd\"",
+                "policy": "envProd"
+            },
+            {
+                "attributes": "\"locUK\" \"depOther\" \"ipOther\"",
+                "policy": "locUK and depOther or ipOther"
+            },
+            {
+                "attributes": "\"timeDay\" \"timeOther\" \"appWeb\" \"browserSafari\" \"envProd\"",
+                "policy": "timeDay and timeOther or appWeb or browserSafari and envProd"
+            },
+            {
+                "attributes": "\"browserChrome\" \"ipUS\" \"resourceProduct\" \"dataOther\"",
+                "policy": "browserChrome and ipUS or resourceProduct or dataOther"
+            },
+            {
+                "attributes": "\"envTest\"",
+                "policy": "envTest"
+            },
+            {
+                "attributes": "\"activeFalse\" \"depMarketing\"",
+                "policy": "activeFalse and depMarketing"
+            },
+            {
+                "attributes": "\"appMobile\" \"envOther\" \"browserSafari\" \"locEU\" \"browserChrome\"",
+                "policy": "appMobile and envOther or browserSafari and locEU or browserChrome"
+            },
+            {
+                "attributes": "\"timeDay\" \"browserIE\" \"depIT\" \"locOther\"",
+                "policy": "timeDay or browserIE or depIT and locOther"
+            },
+            {
+                "attributes": "\"appWeb\" \"resourceUser\"",
+                "policy": "appWeb or resourceUser"
+            }
+        ],
+        [
+            {
+                "attributes": "\"locUS\" \"roleUser\"",
+                "policy": "locUS and roleUser"
+            },
+            {
+                "attributes": "\"envOther\" \"browserSafari\" \"deviceOther\"",
+                "policy": "envOther and browserSafari and deviceOther"
+            },
+            {
+                "attributes": "\"roleGuest\" \"depIT\"",
+                "policy": "roleGuest or depIT"
+            },
+            {
+                "attributes": "\"envTest\" \"roleGuest\" \"browserSafari\" \"ipUK\" \"locUS\"",
+                "policy": "envTest or roleGuest and browserSafari and ipUK and locUS"
+            },
+            {
+                "attributes": "\"timeWeekend\" \"deviceOther\" \"actionOther\"",
+                "policy": "timeWeekend and deviceOther or actionOther"
+            },
+            {
+                "attributes": "\"locUS\" \"locEU\" \"roleManager\" \"actionWrite\" \"roleEmployee\"",
+                "policy": "locUS or locEU and roleManager and actionWrite and roleEmployee"
+            },
+            {
+                "attributes": "\"roleUser\"",
+                "policy": "roleUser"
+            },
+            {
+                "attributes": "\"actionWrite\" \"activeOther\"",
+                "policy": "actionWrite or activeOther"
+            },
+            {
+                "attributes": "\"osLinux\" \"appWeb\" \"ipUK\" \"locEU\"",
+                "policy": "osLinux and appWeb or ipUK or locEU"
+            },
+            {
+                "attributes": "\"depOther\" \"appOther\" \"roleCustomer\"",
+                "policy": "depOther or appOther or roleCustomer"
+            }
+        ],
+        [
+            {
+                "attributes": "\"browserChrome\" \"depHR\" \"depFinance\"",
+                "policy": "browserChrome and depHR or depFinance"
+            },
+            {
+                "attributes": "\"locUK\" \"browserSafari\" \"resourceProduct\"",
+                "policy": "locUK or browserSafari or resourceProduct"
+            },
+            {
+                "attributes": "\"browserChrome\" \"timeWeekday\"",
+                "policy": "browserChrome or timeWeekday"
+            },
+            {
+                "attributes": "\"roleManager\" \"actionWrite\"",
+                "policy": "roleManager or actionWrite"
+            },
+            {
+                "attributes": "\"dataSensitive\" \"depSales\" \"browserOther\" \"timeWeekday\" \"depHR\"",
+                "policy": "dataSensitive or depSales or browserOther and timeWeekday or depHR"
+            },
+            {
+                "attributes": "\"envDev\" \"browserFirefox\" \"dataNonSensitive\"",
+                "policy": "envDev or browserFirefox or dataNonSensitive"
+            },
+            {
+                "attributes": "\"browserFirefox\" \"appWeb\" \"osOther\" \"browserSafari\" \"resourceProduct\"",
+                "policy": "browserFirefox or appWeb and osOther and browserSafari and resourceProduct"
+            },
+            {
+                "attributes": "\"ipEU\" \"deviceOther\" \"envProd\" \"timeWeekday\"",
+                "policy": "ipEU or deviceOther or envProd or timeWeekday"
+            },
+            {
+                "attributes": "\"osOther\" \"actionDelete\"",
+                "policy": "osOther or actionDelete"
+            },
+            {
+                "attributes": "\"locOther\" \"deviceMobile\"",
+                "policy": "locOther and deviceMobile"
+            }
+        ],
+        [
+            {
+                "attributes": "\"envOther\" \"dataOther\"",
+                "policy": "envOther and dataOther"
+            },
+            {
+                "attributes": "\"timeDay\" \"roleCustomer\" \"resourceOther\" \"deviceMobile\"",
+                "policy": "timeDay or roleCustomer or resourceOther and deviceMobile"
+            },
+            {
+                "attributes": "\"roleUser\"",
+                "policy": "roleUser"
+            },
+            {
+                "attributes": "\"envDev\" \"appWeb\"",
+                "policy": "envDev or appWeb"
+            },
+            {
+                "attributes": "\"resourceUser\"",
+                "policy": "resourceUser"
+            },
+            {
+                "attributes": "\"envDev\" \"activeFalse\" \"locOther\"",
+                "policy": "envDev and activeFalse and locOther"
+            },
+            {
+                "attributes": "\"deviceTablet\"",
+                "policy": "deviceTablet"
+            },
+            {
+                "attributes": "\"envTest\" \"depFinance\" \"dataNonSensitive\" \"deviceMobile\" \"activeTrue\"",
+                "policy": "envTest and depFinance or dataNonSensitive and deviceMobile and activeTrue"
+            },
+            {
+                "attributes": "\"timeOther\"",
+                "policy": "timeOther"
+            },
+            {
+                "attributes": "\"roleAdmin\" \"timeWeekday\"",
+                "policy": "roleAdmin or timeWeekday"
+            }
+        ],
+        [
+            {
+                "attributes": "\"roleManager\"",
+                "policy": "roleManager"
+            },
+            {
+                "attributes": "\"ipUS\" \"roleGuest\" \"roleAuditor\" \"locOther\"",
+                "policy": "ipUS or roleGuest or roleAuditor and locOther"
+            },
+            {
+                "attributes": "\"actionRead\" \"osMac\" \"appDesktop\"",
+                "policy": "actionRead and osMac or appDesktop"
+            },
+            {
+                "attributes": "\"osMac\" \"browserChrome\" \"browserSafari\"",
+                "policy": "osMac and browserChrome and browserSafari"
+            },
+            {
+                "attributes": "\"depSales\" \"ipOther\" \"osMac\" \"timeWeekday\"",
+                "policy": "depSales or ipOther or osMac and timeWeekday"
+            },
+            {
+                "attributes": "\"roleAdmin\"",
+                "policy": "roleAdmin"
+            },
+            {
+                "attributes": "\"locUK\" \"osMac\" \"timeWeekday\"",
+                "policy": "locUK or osMac and timeWeekday"
+            },
+            {
+                "attributes": "\"envOther\" \"envTest\" \"locUS\" \"depIT\"",
+                "policy": "envOther and envTest or locUS or depIT"
+            },
+            {
+                "attributes": "\"envTest\"",
+                "policy": "envTest"
+            },
+            {
+                "attributes": "\"timeDay\" \"depIT\"",
+                "policy": "timeDay and depIT"
+            }
+        ],
+        [
+            {
+                "attributes": "\"depSales\"",
+                "policy": "depSales"
+            },
+            {
+                "attributes": "\"resourceOther\"",
+                "policy": "resourceOther"
+            },
+            {
+                "attributes": "\"roleAdmin\"",
+                "policy": "roleAdmin"
+            },
+            {
+                "attributes": "\"roleSupplier\" \"depSales\" \"deviceOther\"",
+                "policy": "roleSupplier or depSales or deviceOther"
+            },
+            {
+                "attributes": "\"resourceOther\" \"deviceTablet\"",
+                "policy": "resourceOther and deviceTablet"
+            },
+            {
+                "attributes": "\"timeDay\" \"actionWrite\" \"timeWeekend\"",
+                "policy": "timeDay and actionWrite or timeWeekend"
+            },
+            {
+                "attributes": "\"appOther\" \"roleEmployee\"",
+                "policy": "appOther or roleEmployee"
+            },
+            {
+                "attributes": "\"osWindows\" \"resourceUser\" \"locOther\" \"deviceMobile\" \"actionWrite\"",
+                "policy": "osWindows and resourceUser and locOther and deviceMobile or actionWrite"
+            },
+            {
+                "attributes": "\"deviceTablet\"",
+                "policy": "deviceTablet"
+            },
+            {
+                "attributes": "\"depHR\" \"timeNight\"",
+                "policy": "depHR and timeNight"
+            }
+        ],
+        [
+            {
+                "attributes": "\"roleEmployee\"",
+                "policy": "roleEmployee"
+            },
+            {
+                "attributes": "\"appOther\" \"osOther\" \"browserChrome\" \"depIT\"",
+                "policy": "appOther or osOther or browserChrome and depIT"
+            },
+            {
+                "attributes": "\"envProd\" \"appDesktop\"",
+                "policy": "envProd or appDesktop"
+            },
+            {
+                "attributes": "\"actionOther\" \"browserFirefox\"",
+                "policy": "actionOther and browserFirefox"
+            },
+            {
+                "attributes": "\"roleSupplier\" \"activeFalse\"",
+                "policy": "roleSupplier or activeFalse"
+            },
+            {
+                "attributes": "\"locUK\" \"appMobile\" \"roleOwner\" \"roleAuditor\"",
+                "policy": "locUK or appMobile and roleOwner or roleAuditor"
+            },
+            {
+                "attributes": "\"roleAdmin\" \"locUS\" \"envDev\" \"actionWrite\" \"depIT\"",
+                "policy": "roleAdmin or locUS and envDev or actionWrite or depIT"
+            },
+            {
+                "attributes": "\"osLinux\" \"actionOther\"",
+                "policy": "osLinux or actionOther"
+            },
+            {
+                "attributes": "\"browserSafari\" \"ipOther\" \"depMarketing\"",
+                "policy": "browserSafari and ipOther or depMarketing"
+            },
+            {
+                "attributes": "\"ipEU\"",
+                "policy": "ipEU"
+            }
+        ],
+        [
+            {
+                "attributes": "\"depSales\" \"roleAdmin\" \"actionOther\" \"resourceOther\" \"envProd\"",
+                "policy": "depSales or roleAdmin or actionOther or resourceOther or envProd"
+            },
+            {
+                "attributes": "\"osLinux\" \"actionDelete\" \"depSales\" \"roleAuditor\"",
+                "policy": "osLinux or actionDelete and depSales and roleAuditor"
+            },
+            {
+                "attributes": "\"timeWeekend\" \"appMobile\" \"roleAuditor\"",
+                "policy": "timeWeekend and appMobile and roleAuditor"
+            },
+            {
+                "attributes": "\"depHR\"",
+                "policy": "depHR"
+            },
+            {
+                "attributes": "\"locUK\" \"depHR\" \"roleOwner\"",
+                "policy": "locUK and depHR and roleOwner"
+            },
+            {
+                "attributes": "\"appMobile\" \"deviceOther\" \"deviceMobile\"",
+                "policy": "appMobile and deviceOther or deviceMobile"
+            },
+            {
+                "attributes": "\"appOther\"",
+                "policy": "appOther"
+            },
+            {
+                "attributes": "\"roleSupplier\" \"actionWrite\" \"activeOther\"",
+                "policy": "roleSupplier or actionWrite or activeOther"
+            },
+            {
+                "attributes": "\"envOther\"",
+                "policy": "envOther"
+            },
+            {
+                "attributes": "\"deviceDesktop\"",
+                "policy": "deviceDesktop"
+            }
+        ],
+        [
+            {
+                "attributes": "\"envTest\"",
+                "policy": "envTest"
+            },
+            {
+                "attributes": "\"depSales\" \"ipUS\" \"browserFirefox\" \"depHR\" \"ipUK\"",
+                "policy": "depSales and ipUS and browserFirefox and depHR or ipUK"
+            },
+            {
+                "attributes": "\"ipOther\"",
+                "policy": "ipOther"
+            },
+            {
+                "attributes": "\"osMac\" \"ipOther\" \"browserSafari\" \"roleManager\" \"depIT\"",
+                "policy": "osMac and ipOther and browserSafari and roleManager or depIT"
+            },
+            {
+                "attributes": "\"deviceOther\"",
+                "policy": "deviceOther"
+            },
+            {
+                "attributes": "\"osOther\" \"dataOther\" \"browserSafari\" \"actionOther\"",
+                "policy": "osOther or dataOther and browserSafari or actionOther"
+            },
+            {
+                "attributes": "\"dataOther\" \"locEU\"",
+                "policy": "dataOther and locEU"
+            },
+            {
+                "attributes": "\"appOther\" \"browserIE\" \"roleEmployee\" \"timeWeekday\"",
+                "policy": "appOther and browserIE and roleEmployee or timeWeekday"
+            },
+            {
+                "attributes": "\"appWeb\" \"activeFalse\" \"resourceProduct\" \"dataOther\"",
+                "policy": "appWeb or activeFalse and resourceProduct and dataOther"
+            },
+            {
+                "attributes": "\"roleCustomer\" \"dataOther\" \"timeNight\" \"resourceProduct\" \"locEU\"",
+                "policy": "roleCustomer or dataOther or timeNight and resourceProduct or locEU"
+            }
+        ],
+        [
+            {
+                "attributes": "\"ipEU\"",
+                "policy": "ipEU"
+            },
+            {
+                "attributes": "\"browserChrome\" \"appDesktop\"",
+                "policy": "browserChrome or appDesktop"
+            },
+            {
+                "attributes": "\"envDev\" \"depSales\" \"actionWrite\"",
+                "policy": "envDev and depSales or actionWrite"
+            },
+            {
+                "attributes": "\"envDev\" \"timeOther\" \"ipUS\" \"locUS\"",
+                "policy": "envDev or timeOther or ipUS or locUS"
+            },
+            {
+                "attributes": "\"actionWrite\" \"osWindows\" \"ipEU\" \"dataNonSensitive\"",
+                "policy": "actionWrite or osWindows and ipEU or dataNonSensitive"
+            },
+            {
+                "attributes": "\"osLinux\" \"osWindows\" \"deviceOther\" \"osOther\" \"activeOther\"",
+                "policy": "osLinux or osWindows and deviceOther and osOther and activeOther"
+            },
+            {
+                "attributes": "\"roleUser\"",
+                "policy": "roleUser"
+            },
+            {
+                "attributes": "\"resourceUser\"",
+                "policy": "resourceUser"
+            },
+            {
+                "attributes": "\"locUS\"",
+                "policy": "locUS"
+            },
+            {
+                "attributes": "\"timeOther\" \"deviceOther\" \"appDesktop\" \"depOther\" \"dataNonSensitive\"",
+                "policy": "timeOther and deviceOther or appDesktop and depOther and dataNonSensitive"
+            }
+        ],
+        [
+            {
+                "attributes": "\"locUK\" \"locEU\" \"depIT\" \"timeWeekday\"",
+                "policy": "locUK or locEU and depIT or timeWeekday"
+            },
+            {
+                "attributes": "\"locEU\"",
+                "policy": "locEU"
+            },
+            {
+                "attributes": "\"timeNight\"",
+                "policy": "timeNight"
+            },
+            {
+                "attributes": "\"depOther\" \"activeFalse\" \"depHR\"",
+                "policy": "depOther or activeFalse and depHR"
+            },
+            {
+                "attributes": "\"dataNonSensitive\"",
+                "policy": "dataNonSensitive"
+            },
+            {
+                "attributes": "\"appMobile\" \"locOther\"",
+                "policy": "appMobile or locOther"
+            },
+            {
+                "attributes": "\"activeOther\" \"depFinance\" \"locEU\" \"roleOther\"",
+                "policy": "activeOther or depFinance and locEU and roleOther"
+            },
+            {
+                "attributes": "\"roleSupplier\" \"ipUS\" \"locUS\" \"resourceOther\" \"deviceTablet\"",
+                "policy": "roleSupplier and ipUS and locUS and resourceOther or deviceTablet"
+            },
+            {
+                "attributes": "\"actionRead\" \"ipUS\" \"osOther\" \"ipUK\" \"roleManager\"",
+                "policy": "actionRead and ipUS and osOther and ipUK or roleManager"
+            },
+            {
+                "attributes": "\"browserSafari\"",
+                "policy": "browserSafari"
+            }
+        ],
+        [
+            {
+                "attributes": "\"envTest\" \"depHR\"",
+                "policy": "envTest or depHR"
+            },
+            {
+                "attributes": "\"roleEmployee\" \"depFinance\" \"deviceTablet\"",
+                "policy": "roleEmployee or depFinance or deviceTablet"
+            },
+            {
+                "attributes": "\"ipUS\" \"timeWeekday\" \"roleUser\"",
+                "policy": "ipUS or timeWeekday or roleUser"
+            },
+            {
+                "attributes": "\"dataOther\" \"locOther\" \"roleOther\" \"roleManager\" \"activeTrue\"",
+                "policy": "dataOther and locOther or roleOther or roleManager and activeTrue"
+            },
+            {
+                "attributes": "\"activeFalse\" \"dataOther\" \"roleCustomer\"",
+                "policy": "activeFalse and dataOther and roleCustomer"
+            },
+            {
+                "attributes": "\"resourceOther\" \"locUS\" \"roleAdmin\" \"resourceUser\"",
+                "policy": "resourceOther and locUS and roleAdmin and resourceUser"
+            },
+            {
+                "attributes": "\"timeOther\"",
+                "policy": "timeOther"
+            },
+            {
+                "attributes": "\"appWeb\" \"roleOther\" \"osLinux\"",
+                "policy": "appWeb or roleOther or osLinux"
+            },
+            {
+                "attributes": "\"actionWrite\"",
+                "policy": "actionWrite"
+            },
+            {
+                "attributes": "\"deviceOther\" \"locUS\" \"appDesktop\" \"deviceMobile\"",
+                "policy": "deviceOther or locUS and appDesktop or deviceMobile"
+            }
+        ],
+        [
+            {
+                "attributes": "\"actionRead\" \"appOther\" \"timeNight\" \"roleOwner\" \"depIT\"",
+                "policy": "actionRead or appOther or timeNight or roleOwner or depIT"
+            },
+            {
+                "attributes": "\"osLinux\" \"osOther\" \"locEU\" \"actionOther\" \"osMac\"",
+                "policy": "osLinux or osOther and locEU or actionOther and osMac"
+            },
+            {
+                "attributes": "\"osOther\"",
+                "policy": "osOther"
+            },
+            {
+                "attributes": "\"locUK\" \"appMobile\" \"browserSafari\" \"timeNight\"",
+                "policy": "locUK and appMobile or browserSafari and timeNight"
+            },
+            {
+                "attributes": "\"depFinance\"",
+                "policy": "depFinance"
+            },
+            {
+                "attributes": "\"envDev\" \"deviceDesktop\" \"locEU\" \"ipOther\"",
+                "policy": "envDev and deviceDesktop or locEU or ipOther"
+            },
+            {
+                "attributes": "\"actionWrite\" \"ipEU\" \"envProd\" \"deviceTablet\"",
+                "policy": "actionWrite or ipEU and envProd or deviceTablet"
+            },
+            {
+                "attributes": "\"depFinance\" \"locOther\" \"envOther\" \"resourceProduct\" \"roleAuditor\"",
+                "policy": "depFinance and locOther and envOther and resourceProduct and roleAuditor"
+            },
+            {
+                "attributes": "\"timeWeekend\"",
+                "policy": "timeWeekend"
+            },
+            {
+                "attributes": "\"appOther\" \"roleCustomer\" \"resourceOrder\" \"locUS\"",
+                "policy": "appOther and roleCustomer and resourceOrder and locUS"
+            }
+        ],
+        [
+            {
+                "attributes": "\"osLinux\"",
+                "policy": "osLinux"
+            },
+            {
+                "attributes": "\"osWindows\" \"depHR\" \"resourceOther\"",
+                "policy": "osWindows and depHR and resourceOther"
+            },
+            {
+                "attributes": "\"roleManager\" \"timeOther\" \"depFinance\" \"locEU\"",
+                "policy": "roleManager and timeOther or depFinance or locEU"
+            },
+            {
+                "attributes": "\"timeDay\" \"depOther\" \"deviceMobile\"",
+                "policy": "timeDay or depOther or deviceMobile"
+            },
+            {
+                "attributes": "\"resourceOrder\" \"activeTrue\" \"roleAdmin\" \"resourceProduct\"",
+                "policy": "resourceOrder or activeTrue or roleAdmin or resourceProduct"
+            },
+            {
+                "attributes": "\"envTest\" \"deviceDesktop\" \"depMarketing\" \"appWeb\" \"depHR\"",
+                "policy": "envTest and deviceDesktop and depMarketing or appWeb or depHR"
+            },
+            {
+                "attributes": "\"actionRead\" \"dataOther\"",
+                "policy": "actionRead and dataOther"
+            },
+            {
+                "attributes": "\"timeDay\" \"deviceDesktop\" \"resourceProduct\" \"roleAuditor\" \"envProd\"",
+                "policy": "timeDay and deviceDesktop and resourceProduct or roleAuditor or envProd"
+            },
+            {
+                "attributes": "\"osLinux\"",
+                "policy": "osLinux"
+            },
+            {
+                "attributes": "\"envOther\"",
+                "policy": "envOther"
+            }
+        ],
+        [
+            {
+                "attributes": "\"appWeb\" \"osOther\"",
+                "policy": "appWeb or osOther"
+            },
+            {
+                "attributes": "\"appOther\" \"resourceOrder\"",
+                "policy": "appOther and resourceOrder"
+            },
+            {
+                "attributes": "\"activeTrue\"",
+                "policy": "activeTrue"
+            },
+            {
+                "attributes": "\"timeDay\" \"browserFirefox\" \"appWeb\" \"roleAuditor\" \"envProd\"",
+                "policy": "timeDay or browserFirefox or appWeb or roleAuditor or envProd"
+            },
+            {
+                "attributes": "\"actionRead\" \"timeNight\" \"actionOther\" \"activeFalse\" \"envProd\"",
+                "policy": "actionRead and timeNight and actionOther or activeFalse or envProd"
+            },
+            {
+                "attributes": "\"envProd\"",
+                "policy": "envProd"
+            },
+            {
+                "attributes": "\"locUK\"",
+                "policy": "locUK"
+            },
+            {
+                "attributes": "\"roleSupplier\" \"osWindows\" \"appMobile\" \"timeNight\" \"actionDelete\"",
+                "policy": "roleSupplier and osWindows and appMobile and timeNight and actionDelete"
+            },
+            {
+                "attributes": "\"dataNonSensitive\" \"deviceTablet\"",
+                "policy": "dataNonSensitive and deviceTablet"
+            },
+            {
+                "attributes": "\"appWeb\" \"actionDelete\" \"timeWeekday\"",
+                "policy": "appWeb and actionDelete or timeWeekday"
+            }
+        ],
+        [
+            {
+                "attributes": "\"osOther\" \"actionWrite\"",
+                "policy": "osOther and actionWrite"
+            },
+            {
+                "attributes": "\"depOther\" \"envProd\"",
+                "policy": "depOther and envProd"
+            },
+            {
+                "attributes": "\"actionRead\" \"browserSafari\" \"resourceOrder\"",
+                "policy": "actionRead or browserSafari and resourceOrder"
+            },
+            {
+                "attributes": "\"locUK\" \"roleOther\" \"roleAuditor\" \"resourceUser\" \"roleManager\"",
+                "policy": "locUK or roleOther or roleAuditor or resourceUser or roleManager"
+            },
+            {
+                "attributes": "\"browserChrome\" \"actionRead\" \"roleGuest\" \"locUS\"",
+                "policy": "browserChrome and actionRead and roleGuest and locUS"
+            },
+            {
+                "attributes": "\"timeWeekend\" \"roleAuditor\"",
+                "policy": "timeWeekend and roleAuditor"
+            },
+            {
+                "attributes": "\"timeWeekend\" \"dataNonSensitive\"",
+                "policy": "timeWeekend or dataNonSensitive"
+            },
+            {
+                "attributes": "\"appDesktop\" \"depOther\" \"browserSafari\" \"osMac\" \"depIT\"",
+                "policy": "appDesktop or depOther and browserSafari or osMac or depIT"
+            },
+            {
+                "attributes": "\"roleUser\"",
+                "policy": "roleUser"
+            },
+            {
+                "attributes": "\"depOther\" \"depFinance\" \"timeNight\" \"resourceOrder\" \"activeTrue\"",
+                "policy": "depOther and depFinance or timeNight or resourceOrder and activeTrue"
+            }
+        ],
+        [
+            {
+                "attributes": "\"envTest\" \"ipUS\" \"actionDelete\" \"ipUK\" \"resourceOrder\"",
+                "policy": "envTest or ipUS and actionDelete or ipUK and resourceOrder"
+            },
+            {
+                "attributes": "\"appDesktop\"",
+                "policy": "appDesktop"
+            },
+            {
+                "attributes": "\"depOther\" \"depMarketing\" \"activeOther\" \"envDev\" \"envProd\"",
+                "policy": "depOther or depMarketing or activeOther or envDev and envProd"
+            },
+            {
+                "attributes": "\"depSales\" \"actionRead\" \"actionOther\" \"resourceUser\" \"depIT\"",
+                "policy": "depSales and actionRead and actionOther and resourceUser and depIT"
+            },
+            {
+                "attributes": "\"actionWrite\"",
+                "policy": "actionWrite"
+            },
+            {
+                "attributes": "\"locUK\" \"roleAuditor\" \"browserSafari\" \"appDesktop\"",
+                "policy": "locUK and roleAuditor and browserSafari or appDesktop"
+            },
+            {
+                "attributes": "\"appWeb\" \"timeWeekend\"",
+                "policy": "appWeb or timeWeekend"
+            },
+            {
+                "attributes": "\"osMac\" \"browserSafari\" \"depHR\"",
+                "policy": "osMac or browserSafari and depHR"
+            },
+            {
+                "attributes": "\"locUK\" \"osMac\"",
+                "policy": "locUK or osMac"
+            },
+            {
+                "attributes": "\"timeWeekend\" \"appMobile\" \"roleGuest\" \"depFinance\" \"locUS\"",
+                "policy": "timeWeekend or appMobile and roleGuest and depFinance or locUS"
+            }
+        ],
+        [
+            {
+                "attributes": "\"depSales\" \"appDesktop\"",
+                "policy": "depSales or appDesktop"
+            },
+            {
+                "attributes": "\"actionRead\" \"roleCustomer\" \"appDesktop\" \"appMobile\" \"ipOther\"",
+                "policy": "actionRead or roleCustomer or appDesktop and appMobile and ipOther"
+            },
+            {
+                "attributes": "\"envProd\"",
+                "policy": "envProd"
+            },
+            {
+                "attributes": "\"envTest\" \"timeWeekday\" \"roleGuest\" \"osOther\" \"actionDelete\"",
+                "policy": "envTest and timeWeekday or roleGuest and osOther and actionDelete"
+            },
+            {
+                "attributes": "\"deviceOther\" \"resourceOrder\"",
+                "policy": "deviceOther or resourceOrder"
+            },
+            {
+                "attributes": "\"envDev\" \"appWeb\" \"roleCustomer\" \"actionOther\"",
+                "policy": "envDev and appWeb and roleCustomer or actionOther"
+            },
+            {
+                "attributes": "\"osWindows\" \"deviceDesktop\" \"depHR\" \"deviceMobile\"",
+                "policy": "osWindows or deviceDesktop or depHR or deviceMobile"
+            },
+            {
+                "attributes": "\"appWeb\" \"depIT\"",
+                "policy": "appWeb or depIT"
+            },
+            {
+                "attributes": "\"roleAdmin\" \"roleUser\"",
+                "policy": "roleAdmin and roleUser"
+            },
+            {
+                "attributes": "\"appMobile\" \"roleEmployee\"",
+                "policy": "appMobile or roleEmployee"
+            }
+        ],
+        [
+            {
+                "attributes": "\"roleEmployee\" \"appDesktop\" \"deviceMobile\"",
+                "policy": "roleEmployee and appDesktop or deviceMobile"
+            },
+            {
+                "attributes": "\"browserFirefox\" \"roleGuest\" \"locOther\" \"roleManager\" \"actionWrite\"",
+                "policy": "browserFirefox and roleGuest or locOther or roleManager or actionWrite"
+            },
+            {
+                "attributes": "\"roleUser\"",
+                "policy": "roleUser"
+            },
+            {
+                "attributes": "\"dataOther\" \"envTest\" \"roleOwner\" \"dataNonSensitive\"",
+                "policy": "dataOther and envTest and roleOwner or dataNonSensitive"
+            },
+            {
+                "attributes": "\"actionDelete\" \"ipEU\" \"osMac\" \"depHR\"",
+                "policy": "actionDelete and ipEU or osMac and depHR"
+            },
+            {
+                "attributes": "\"roleEmployee\" \"activeTrue\"",
+                "policy": "roleEmployee or activeTrue"
+            },
+            {
+                "attributes": "\"browserFirefox\" \"depHR\" \"timeWeekday\" \"resourceUser\"",
+                "policy": "browserFirefox and depHR or timeWeekday and resourceUser"
+            },
+            {
+                "attributes": "\"envDev\" \"envTest\" \"deviceDesktop\" \"timeWeekday\"",
+                "policy": "envDev or envTest or deviceDesktop and timeWeekday"
+            },
+            {
+                "attributes": "\"envProd\" \"locEU\"",
+                "policy": "envProd and locEU"
+            },
+            {
+                "attributes": "\"appWeb\" \"appOther\" \"deviceOther\" \"depFinance\"",
+                "policy": "appWeb or appOther and deviceOther or depFinance"
+            }
+        ]
+    ]
+}

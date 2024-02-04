@@ -1,7 +1,7 @@
 import sys
 import random
 import json
-all_json = {"transactions": []}
+
 attributes = [
     'activeTrue', 'activeFalse', 'activeOther',
     'roleUser', 'roleAdmin', 'roleManager', 'roleEmployee', 'roleCustomer', 'roleSupplier', 'roleAuditor', 'roleOwner', 'roleGuest', 'roleOther',
@@ -39,15 +39,46 @@ def random_combine_attributes():
             policy += ' ' + relation[random.randint(0, len(relation)-1)] + ' '
     return attribute, policy
 
-batch_size = [5, 10, 20, 25, 50, 100]
-for i in batch_size:
-    batch_num = 200//i
-    for j in range(batch_num):
+# batch_size = [5, 10, 20, 25, 50, 100]
+# for i in batch_size:
+#     all_json = {"transactions": []}
+#     batch_num = 200//i
+#     for j in range(batch_num):
+#         batch = []
+#         for k in range(i):
+#             attribute, policy = random_combine_attributes()
+#             batch.append({"policy": policy, "attributes": attribute})
+#         all_json["transactions"].append(batch)
+
+#     open(f'access_control_{batch_num}batch_{i}size.json', 'w').write(json.dumps(all_json, indent=4, sort_keys=True))
+
+# batch_size = 5
+# request_num = [200, 400, 600, 800, 1000]
+# for i in request_num:
+#     all_json = {"transactions": []}
+#     batch_num = i // batch_size
+#     for j in range(batch_num):
+#         batch = []
+#         for k in range(batch_size):
+#             attribute, policy = random_combine_attributes()
+#             batch.append({"policy": policy, "attributes": attribute})
+#         all_json["transactions"].append(batch)
+
+#     open(f"access_control_{batch_num}batch_{batch_size}size.json", "w").write(
+#         json.dumps(all_json, indent=4, sort_keys=True)
+#     )
+
+batch_sizes = [5]
+batch_num = 200
+for batch_size in batch_sizes:
+    all_json = {"transactions": []}
+    request_num = batch_num * batch_size
+    for i in range(batch_num):
         batch = []
-        for k in range(i):
+        for j in range(batch_size):
             attribute, policy = random_combine_attributes()
             batch.append({"policy": policy, "attributes": attribute})
         all_json["transactions"].append(batch)
-
-    open(f'access_control_{batch_num}batch_{i}size.json', 'w').write(json.dumps(all_json, indent=4, sort_keys=True))
-
+    open(f"access_control_{batch_num}batch_{batch_size}size.json", "w").write(
+        json.dumps(all_json, indent=4, sort_keys=True)
+    )

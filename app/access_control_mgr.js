@@ -45,13 +45,16 @@ class AccessControlMgr {
             throw new Error(`Txn ${txnID} has not been created. `);
         }
         // var time;
-        // const encrypt_start = new Date();
-        return timer(10).then(() => {
-            const cipher = "9618055430ae2239a860529df93b4ab1";
-            LOGGER.info(`\tEncrypt the key with the access policy "${access_policy}" to get the cipher ${cipher} in 10 ms.`)
-            this.cpabe_cipher[txnID] = cipher;
+        const encrypt_start = new Date();
+        const cipher = "9618055430ae2239a860529df93b4ab1";
+        // LOGGER.info(`\tEncrypt the key with the access policy "${access_policy}" to get the cipher ${cipher} in 10 ms.`)
+        this.cpabe_cipher[txnID] = cipher;
+        return timer(0).then(() => {
             return this.fabric_front.InvokeTxn(this.ac_contract_id, "AppendCipher", [txnID, cipher]);
         }).then(() => {
+            const encrypt_end = new Date();
+            const time = encrypt_end - encrypt_start;
+            LOGGER.info(`\tEncrypt in ${time} ms.`);
             return [txnID, 10];
         }).catch((error) => {
             LOGGER.error(`Error with code ${error}`);

@@ -1,0 +1,124 @@
+{
+    "transactions": [
+        [
+            {
+                "attributes": "\"locEU\" \"resourceOrder\"",
+                "policy": "locEU or resourceOrder"
+            }
+        ],
+        [
+            {
+                "attributes": "\"ipUK\" \"actionRead\" \"resourceOther\" \"activeTrue\" \"ipOther\"",
+                "policy": "ipUK or actionRead or resourceOther or activeTrue and ipOther"
+            }
+        ],
+        [
+            {
+                "attributes": "\"dataOther\" \"roleUser\"",
+                "policy": "dataOther and roleUser"
+            }
+        ],
+        [
+            {
+                "attributes": "\"activeTrue\" \"locUK\" \"appDesktop\"",
+                "policy": "activeTrue and locUK or appDesktop"
+            }
+        ],
+        [
+            {
+                "attributes": "\"ipUK\" \"timeWeekday\" \"deviceTablet\" \"roleAuditor\" \"envTest\"",
+                "policy": "ipUK or timeWeekday and deviceTablet and roleAuditor or envTest"
+            }
+        ],
+        [
+            {
+                "attributes": "\"osWindows\" \"appMobile\" \"ipUS\" \"actionWrite\" \"ipOther\"",
+                "policy": "osWindows and appMobile and ipUS or actionWrite and ipOther"
+            }
+        ],
+        [
+            {
+                "attributes": "\"roleOwner\"",
+                "policy": "roleOwner"
+            }
+        ],
+        [
+            {
+                "attributes": "\"locEU\" \"timeDay\" \"actionDelete\" \"dataNonSensitive\" \"locUK\"",
+                "policy": "locEU and timeDay or actionDelete and dataNonSensitive or locUK"
+            }
+        ],
+        [
+            {
+                "attributes": "\"depSales\" \"timeOther\" \"envProd\" \"roleEmployee\" \"timeWeekend\"",
+                "policy": "depSales or timeOther and envProd or roleEmployee and timeWeekend"
+            }
+        ],
+        [
+            {
+                "attributes": "\"roleOwner\" \"roleEmployee\" \"resourceOther\" \"browserSafari\" \"ipEU\"",
+                "policy": "roleOwner or roleEmployee or resourceOther and browserSafari or ipEU"
+            }
+        ],
+        [
+            {
+                "attributes": "\"deviceDesktop\" \"browserChrome\" \"activeTrue\" \"timeOther\"",
+                "policy": "deviceDesktop and browserChrome and activeTrue and timeOther"
+            }
+        ],
+        [
+            {
+                "attributes": "\"dataNonSensitive\" \"appOther\"",
+                "policy": "dataNonSensitive and appOther"
+            }
+        ],
+        [
+            {
+                "attributes": "\"resourceProduct\" \"deviceDesktop\" \"depOther\" \"roleUser\" \"appDesktop\"",
+                "policy": "resourceProduct or deviceDesktop and depOther or roleUser or appDesktop"
+            }
+        ],
+        [
+            {
+                "attributes": "\"dataNonSensitive\" \"resourceProduct\" \"timeOther\" \"roleAdmin\"",
+                "policy": "dataNonSensitive or resourceProduct and timeOther and roleAdmin"
+            }
+        ],
+        [
+            {
+                "attributes": "\"deviceMobile\" \"appWeb\"",
+                "policy": "deviceMobile and appWeb"
+            }
+        ],
+        [
+            {
+                "attributes": "\"activeOther\" \"locUS\" \"timeWeekend\" \"dataNonSensitive\" \"envDev\"",
+                "policy": "activeOther and locUS and timeWeekend or dataNonSensitive and envDev"
+            }
+        ],
+        [
+            {
+                "attributes": "\"timeWeekday\" \"ipEU\" \"roleAuditor\" \"timeWeekend\" \"envDev\"",
+                "policy": "timeWeekday or ipEU or roleAuditor and timeWeekend or envDev"
+            }
+        ],
+        [
+            {
+                "attributes": "\"actionRead\" \"deviceMobile\" \"osMac\" \"actionDelete\"",
+                "policy": "actionRead and deviceMobile or osMac or actionDelete"
+            }
+        ],
+        [
+            {
+                "attributes": "\"browserChrome\" \"roleManager\" \"actionDelete\" \"locUS\" \"locUK\"",
+                "policy": "browserChrome or roleManager or actionDelete and locUS or locUK"
+            }
+        ],
+        [
+            {
+                "attributes": "\"deviceDesktop\" \"appWeb\" \"osLinux\" \"osMac\"",
+                "policy": "deviceDesktop and appWeb or osLinux and osMac"
+            }
+        ]
+    ]
+}

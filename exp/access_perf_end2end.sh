@@ -127,7 +127,7 @@ function run_exp() {
     fi
     echo "=========================================================="
 
-    network_down
+    # network_down
 }
 
 function perf_test() {
@@ -206,9 +206,10 @@ main() {
 
     # workload_file="$1"
     # client_count=$2
-    
-    for workload_file in $(ls workload/access_control_*batch_*size.json); do
-        for client_count in 1 2; do
+    export PEER_COUNT=${PEER_COUNT}
+
+    for workload_file in $(ls workload/access_control_20batch_5size.json); do
+        for client_count in 3; do
             run_exp ${workload_file} ${client_count}
             # perf_test ${workload_file} ${client_count}
             echo "Sleep for 10s before the next experiment"

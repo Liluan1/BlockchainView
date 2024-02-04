@@ -91,10 +91,10 @@ Promise.resolve().then(() => {
             var req_promise = ACCESS_MGR.InvokeTxn(WL_FUNC_NAME, pub_arg, CONFIDENTIAL_DATA, req).then((result) => {
                 var status_code = result[0];
                 if (status_code !== 0) {
-                    REJECTED_TXN_COUNT += 1;
+                    REJECTED_TXN_COUNT += 2;
                     return;
                 } else { // For Revocable/Irrevocable/MockFabric Mode. Need to explicitly maintain views by appending operations. 
-                    COMMITTED_TXN_COUNT += 1;
+                    COMMITTED_TXN_COUNT += 2;
 
                     var txnID = result[1];
                     var raw_req = result[2];
@@ -108,6 +108,7 @@ Promise.resolve().then(() => {
         }
         await Promise.all(request_promises).then(() => {
             let batch_elapsed = new Date() - batch_start;
+            LOGGER.info(`Batch ${BATCH_ID} Duration (ms): ${batch_elapsed} , # of reqs: ${batch_req_count} , # of committed txns: ${COMMITTED_TXN_COUNT} , # of rejected txns: ${REJECTED_TXN_COUNT} , encrypt time (ms): ${ENCRYPT_TIME}`)
             BATCH_EXEC_DELAY += batch_elapsed;
         });
     }, 0);
