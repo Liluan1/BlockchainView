@@ -62,11 +62,11 @@ function run_exp() {
     workload_file="$1"
     client_count=$2
 
-    network_channel_up
+    # network_channel_up
 
     workload_chaincodeID="secretcontract"
-    deploy_chaincode "secretcontract" ${PEER_COUNT}
-    deploy_chaincode "accesscontrol" ${PEER_COUNT}
+    # deploy_chaincode "secretcontract" ${PEER_COUNT}
+    # deploy_chaincode "accesscontrol" ${PEER_COUNT}
 
     result_dir="result/$(date +%d-%m)"
     log_dir="log/$(date +%d-%m)"
@@ -206,17 +206,18 @@ main() {
 
     # workload_file="$1"
     # client_count=$2
-    export PEER_COUNT=${PEER_COUNT}
-
-    for workload_file in $(ls workload/access_control_20batch_5size.json); do
-        for client_count in 3; do
+    network_channel_up
+    deploy_chaincode "secretcontract" ${PEER_COUNT}
+    deploy_chaincode "accesscontrol" ${PEER_COUNT}
+    for workload_file in $(ls workload/access_control_*batch_*size.json); do
+        for client_count in 2; do
             run_exp ${workload_file} ${client_count}
             # perf_test ${workload_file} ${client_count}
             echo "Sleep for 10s before the next experiment"
             sleep 10s
         done
     done
-
+    network_down
     popd > /dev/null 2>&1
 }
 

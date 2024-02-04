@@ -15,4 +15,4 @@ export CHANNEL_NAME="accesschannel"
 export NETWORK_DIR="../test-network"
 # export NETWORK_DIR="../gcp-network" 
 export ORG_DIR="${NETWORK_DIR}/organizations/peerOrganizations"
-export MAX_CLI_RUNNING_TIME=200s
+export MAX_CLI_RUNNING_TIME=10000s
