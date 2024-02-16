@@ -152,13 +152,15 @@ main() {
     workload_file="$1"
     client_count=$2
 
-    for hiding_scheme in "${ENCRYPTION_SCHEME}" "${HASH_SCHEME}" ; do
-        for view_mode in "${REVOCABLE_MODE}" "${IRREVOCABLE_MODE}" "${VIEWINCONTRACT_MODE}"; do
-            run_exp ${workload_file} ${hiding_scheme} ${view_mode} ${client_count}
-            echo "Sleep for 10s before the next experiment"
-            sleep 10s
-        done
-    done
+    #for hiding_scheme in "${ENCRYPTION_SCHEME}" "${HASH_SCHEME}" ; do
+    #    for view_mode in "${REVOCABLE_MODE}" "${IRREVOCABLE_MODE}" "${VIEWINCONTRACT_MODE}"; do
+    #        run_exp ${workload_file} ${hiding_scheme} ${view_mode} ${client_count}
+    #        echo "Sleep for 10s before the next experiment"
+    #        sleep 10s
+    #    done
+    #done
+
+    run_exp ${workload_file} ${ENCRYPTION_SCHEME} ${REVOCABLE_MODE} ${client_count}
 
     popd > /dev/null 2>&1
 }
